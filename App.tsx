@@ -72,7 +72,7 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
-        <CustomIcon name="cart" size={25} />
+        <CustomIcon name="cart" size={25} color="gray" />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
