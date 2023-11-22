@@ -16,7 +16,7 @@ const App = () => {
   return (
      <NavigationContainer>
       {/* When you don't want the header bar make headerShown to false 👇*/}
-      <Stack.Navigator screenOptions={{headerShown: true}}> 
+      <Stack.Navigator screenOptions={{headerShown: false}}> 
         <Stack.Screen 
           name="Tab" 
           component={TabNavigator} 
