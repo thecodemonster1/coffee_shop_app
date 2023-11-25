@@ -7,18 +7,17 @@ import BeansData from "../data/BeansData";
 
 export const useStore = create(
   persist(
-    (set, get) => {(
+    (set, get) => ({
       CoffeeList: CoffeeData,
       BeanList: BeansData,
       CartPrice: 0,
       FavouriteList: [],
       CartList: [],
       OrderHistoryList: [],
-
-    )},
+    }),
     {
       name: 'coffee-app', 
-      storage: createJSONStorage(() => AsyncStorage,
-    )},
+      storage: createJSONStorage(() => AsyncStorage),
+    },
   )
 )
