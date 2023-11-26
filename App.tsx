@@ -16,8 +16,13 @@ const App = () => {
   return (
     // <SafeAreaView>
       <NavigationContainer>
+        {/* This safeAreaView for iOS  */}
+        <SafeAreaView>
+          <View style={{ flex: 1,}}>
+          </View>
+        </SafeAreaView>
         {/* When you don't want the header bar make headerShown to false 👇*/}
-        <Stack.Navigator screenOptions={{headerShown: false}}> 
+        <Stack.Navigator screenOptions={{headerShown: false, headerTitle: ''}}> 
           <Stack.Screen 
             name="Tab"
             component={TabNavigator} 
