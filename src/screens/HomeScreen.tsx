@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import { useStore } from '../store/store';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { COLORS } from '../theme/theme';
 
 const getCategoriesFromData = (data: any) => {
   let temp:any = {};
@@ -43,12 +44,18 @@ const HomeScreen = () => {
   // console.log('CoffeeLIST = ', CoffeeList.length);
   const tabBarHeight = useBottomTabBarHeight();
   return (
-    <View>
-      <Text>HomeScreen</Text>
+    <View style={styles.ScreenContainer}>
+      <StatusBar backgroundColor={COLORS.primaryBlackHex} />
     </View>
   )
 }
 
-export default HomeScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  ScreenContainer: {
+    flex: 1,
+    backgroundColor: COLORS.primaryBlackHex,
+  },
+})
+
+export default HomeScreen;
