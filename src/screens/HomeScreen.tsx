@@ -36,7 +36,9 @@ const HomeScreen = () => {
     index: 0,
     category: categories[0],
   }); // (undefined)
-  const [sortedCoffee, setSortedCoffee] = useState();
+  const [sortedCoffee, setSortedCoffee] = useState(
+    getCoffeeList(categoryIndex.category, CoffeeList),
+  );
   // console.log('CoffeeLIST = ', CoffeeList.length);
   return (
     <View>

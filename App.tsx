@@ -21,6 +21,7 @@ const App = () => {
           <View style={{ flex: 1,}}>
           </View>
         </SafeAreaView>
+        {/* 1:18 in Video */} 
         {/* When you don't want the header bar make headerShown to false 👇*/}
         <Stack.Navigator screenOptions={{headerShown: false, headerTitle: ''}}> 
           <Stack.Screen 
