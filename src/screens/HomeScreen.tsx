@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { useStore } from '../store/store'
+import React, {useState} from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { useStore } from '../store/store';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 const getCategoriesFromData = (data: any) => {
   let temp:any = {};
@@ -40,6 +41,7 @@ const HomeScreen = () => {
     getCoffeeList(categoryIndex.category, CoffeeList),
   );
   // console.log('CoffeeLIST = ', CoffeeList.length);
+  const tabBarHeight = useBottomTabBarHeight();
   return (
     <View>
       <Text>HomeScreen</Text>
