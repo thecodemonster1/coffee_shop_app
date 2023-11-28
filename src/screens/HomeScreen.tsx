@@ -46,7 +46,11 @@ const HomeScreen = () => {
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.ScrollViewFlex}></ScrollView>
+      <ScrollView 
+        showsVerticalScrollIndicator={false} 
+        contentContainerStyle={styles.ScrollViewFlex}>
+          {/* App Header */}
+      </ScrollView>
     </View>
   )
 }
