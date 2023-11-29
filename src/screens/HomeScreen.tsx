@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { useStore } from '../store/store';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { COLORS } from '../theme/theme';
@@ -46,6 +46,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.ScrollViewFlex}></ScrollView>
     </View>
   )
 }
@@ -56,6 +57,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.primaryBlackHex,
   },
+  ScrollViewFlex: {
+    flexGrow: 1,
+  }
 })
 
 export default HomeScreen;
