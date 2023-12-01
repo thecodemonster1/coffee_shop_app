@@ -51,7 +51,7 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false} 
         contentContainerStyle={styles.ScrollViewFlex}>
           {/* App Header */}
-          <HeaderBar/>
+          <HeaderBar title={"Home Screen"}/>
       </ScrollView>
     </View>
   )
