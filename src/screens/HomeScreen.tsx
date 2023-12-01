@@ -43,8 +43,10 @@ const HomeScreen = () => {
   const [sortedCoffee, setSortedCoffee] = useState(
     getCoffeeList(categoryIndex.category, CoffeeList),
   );
-  // console.log('CoffeeLIST = ', CoffeeList.length);
+
   const tabBarHeight = useBottomTabBarHeight();
+  console.log('Categories = ', categories)
+  // console.log('CoffeeLIST = ', CoffeeList.length);
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -81,7 +83,13 @@ const HomeScreen = () => {
             />
           </View>
 
-          
+          <ScrollView 
+            horizontal 
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.CategoryScrollViewStyle}
+          >
+            
+          </ScrollView>
       </ScrollView>
     </View>
   )
@@ -119,6 +127,7 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_14,
     color: COLORS.primaryWhiteHex,
   },
+  CategoryScrollViewStyle: {},
 })
 
 export default HomeScreen;
