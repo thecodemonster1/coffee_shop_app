@@ -5,6 +5,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const getCategoriesFromData = (data: any) => {
   let temp:any = {};
@@ -45,7 +46,8 @@ const HomeScreen = () => {
   );
 
   const tabBarHeight = useBottomTabBarHeight();
-  console.log('Categories = ', categories)
+  // console.log('Categories = ', categories) 
+  //  in Video 1:48:35
   // console.log('CoffeeLIST = ', CoffeeList.length);
   return (
     <View style={styles.ScreenContainer}>
@@ -83,12 +85,29 @@ const HomeScreen = () => {
             />
           </View>
 
+          {/* Category Scroller */}
+
           <ScrollView 
             horizontal 
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.CategoryScrollViewStyle}
           >
-            
+            {categories.map((data, index) =>(
+              <View key={index.toString()}
+              style={styles.CategoryScrollViewContainer}>
+                <TouchableOpacity onPress={() => {}}>
+                  <Text style={[
+                    styles.CategoryText,
+                    categoryIndex == index ? {} : {},
+                  ]}>{data}</Text>
+                  {categoryIndex.index == index ? (
+                    <View style={styles.ActiveCategory}/>
+                  ) : (
+                    <></>
+                  )}
+                </TouchableOpacity>
+              </View>
+            ))}
           </ScrollView>
       </ScrollView>
     </View>
@@ -127,7 +146,22 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_14,
     color: COLORS.primaryWhiteHex,
   },
-  CategoryScrollViewStyle: {},
+  CategoryScrollViewStyle: {
+    paddingHorizontal: SPACING.space_20,
+    margingBottom: SPACING.space_20,
+  },
+  CategoryScrollViewContainer: {
+    paddingHorizontal: SPACING.space_15,
+  }, 
+  CategoryText: {
+
+  },
+  ActiveCategory: {
+    height: SPACING.space_10,
+    width: SPACING.space_10,
+    borderRadius: BORDERRADIUS.radius_10,
+    backgroundColor: COLORS.primaryOrangeHex, // Video 1:55:34 
+  },
 })
 
 export default HomeScreen;
