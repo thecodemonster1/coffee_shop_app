@@ -38,8 +38,8 @@ const HomeScreen = () => {
   ); // (undefined)
   const [serchText, setSearchText] = useState(''); // (undefined)
   const [categoryIndex, setCategoryIndex] = useState({
-    index: 0,
-    category: categories[0],
+    index: 1, // if 0 , it will indicate first category
+    category: categories[1],
   }); // (undefined)
   const [sortedCoffee, setSortedCoffee] = useState(
     getCoffeeList(categoryIndex.category, CoffeeList),
@@ -95,10 +95,16 @@ const HomeScreen = () => {
             {categories.map((data, index) =>(
               <View key={index.toString()}
               style={styles.CategoryScrollViewContainer}>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity 
+                style={styles.CategoryScrollViewItem}
+                onPress={() => {
+                  setCategoryIndex({index: index, category: categories[index]});
+                }}>
                   <Text style={[
                     styles.CategoryText,
-                    categoryIndex == index ? {} : {},
+                    categoryIndex.index == index 
+                    ? {color: COLORS.primaryOrangeHex} 
+                    : {},
                   ]}>{data}</Text>
                   {categoryIndex.index == index ? (
                     <View style={styles.ActiveCategory}/>
@@ -153,8 +159,14 @@ const styles = StyleSheet.create({
   CategoryScrollViewContainer: {
     paddingHorizontal: SPACING.space_15,
   }, 
+  CategoryScrollViewItem: {
+    alignItems: 'center', 
+  },
   CategoryText: {
-
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_16,
+    color: COLORS.primaryLightGreyHex,
+    marginBottom: SPACING.space_4,
   },
   ActiveCategory: {
     height: SPACING.space_10,
