@@ -35,12 +35,12 @@ const HomeScreen = () => {
   const BeanList = useStore((state: any) => state.BeanList);
   const [categories, setCategories] = useState(
     getCategoriesFromData(CoffeeList),
-  ); // (undefined)
-  const [serchText, setSearchText] = useState(''); // (undefined)
+  );
+  const [serchText, setSearchText] = useState('');
   const [categoryIndex, setCategoryIndex] = useState({
     index: 1, // if 0 , it will indicate first category
     category: categories[1],
-  }); // (undefined)
+  });
   const [sortedCoffee, setSortedCoffee] = useState(
     getCoffeeList(categoryIndex.category, CoffeeList),
   );
@@ -48,7 +48,7 @@ const HomeScreen = () => {
   const tabBarHeight = useBottomTabBarHeight();
   // console.log('Categories = ', categories) 
   //  in Video 1:48:35
-  // console.log('CoffeeLIST = ', CoffeeList.length);
+  console.log('SortedCoffee = ', sortedCoffee.length);
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -99,6 +99,8 @@ const HomeScreen = () => {
                 style={styles.CategoryScrollViewItem}
                 onPress={() => {
                   setCategoryIndex({index: index, category: categories[index]});
+                  setSortedCoffee([
+                    ...getCoffeeList(categories[index], CoffeeList)]);
                 }}>
                   <Text style={[
                     styles.CategoryText,
