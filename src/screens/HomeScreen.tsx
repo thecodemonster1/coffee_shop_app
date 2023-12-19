@@ -46,9 +46,8 @@ const HomeScreen = () => {
   );
 
   const tabBarHeight = useBottomTabBarHeight();
-  // console.log('Categories = ', categories) 
-  //  in Video 1:48:35
-  console.log('SortedCoffee = ', sortedCoffee.length);
+
+  // console.log('SortedCoffee = ', sortedCoffee.length);
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -117,6 +116,9 @@ const HomeScreen = () => {
               </View>
             ))}
           </ScrollView>
+          {/* 2:00:30 in Video */}
+          {/* Coffee Flatlist */}
+          {/* Beans Flatlist */}
       </ScrollView>
     </View>
   )
