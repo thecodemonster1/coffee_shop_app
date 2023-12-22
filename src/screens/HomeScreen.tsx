@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import { ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useStore } from '../store/store';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import CoffeeCard from '../components/CoffeeCard';
 
 const getCategoriesFromData = (data: any) => {
   let temp:any = {};
@@ -92,8 +93,9 @@ const HomeScreen = () => {
             contentContainerStyle={styles.CategoryScrollViewStyle}
           >
             {categories.map((data, index) =>(
-              <View key={index.toString()}
-              style={styles.CategoryScrollViewContainer}>
+              <View 
+                key={index.toString()}
+                style={styles.CategoryScrollViewContainer}>
                 <TouchableOpacity 
                 style={styles.CategoryScrollViewItem}
                 onPress={() => {
@@ -118,6 +120,18 @@ const HomeScreen = () => {
           </ScrollView>
           {/* 2:00:30 in Video */}
           {/* Coffee Flatlist */}
+          <FlatList 
+            horizontal 
+            showsHorizontalScrollIndicator={false} 
+            data={sortedCoffee} 
+            contentContainerStyle={styles.FlatListContainer}
+            keyExtractor={item => item.id} 
+            renderItem={({item}) => {
+              return <TouchableOpacity>
+                <CoffeeCard name={item.name}/>
+              </TouchableOpacity>
+            }}
+          />
           {/* Beans Flatlist */}
       </ScrollView>
     </View>
@@ -177,6 +191,11 @@ const styles = StyleSheet.create({
     width: SPACING.space_10,
     borderRadius: BORDERRADIUS.radius_10,
     backgroundColor: COLORS.primaryOrangeHex, // Video 1:55:34 
+  },
+  FlatListContainer: {
+    gap: SPACING.space_20,
+    paddingVertical: SPACING.space_20,
+    paddingHorizontal: SPACING.space_30,
   },
 })
 
