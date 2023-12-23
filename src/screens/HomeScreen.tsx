@@ -128,7 +128,7 @@ const HomeScreen = () => {
             keyExtractor={item => item.id} 
             renderItem={({item}) => {
               return (
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => {}}>
                   <CoffeeCard
                     id={item.id}
                     index={item.index}

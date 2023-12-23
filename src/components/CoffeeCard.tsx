@@ -57,7 +57,7 @@ return (
           <Text style={styles.CardPriceCurrency}>
             $ <Text style={styles.CardPrice}>{price.price}</Text>
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => {}}>
             {/* <BGIcon /> */}
             <BGIcon 
               name={'add'}
@@ -72,7 +72,10 @@ return (
 }
 
 const styles = StyleSheet.create({
-  CardLinearGradientContainer: {},
+  CardLinearGradientContainer: {
+    padding: SPACING.space_15,
+    borderRadius: BORDERRADIUS.radius_25,
+  },
   CardImageBG: {
     width: CARD_WIDHT,
     height: CARD_WIDHT,
@@ -99,11 +102,30 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     fontSize: FONTSIZE.size_14,
   },
-  CardFooterRow: {},
-  CardTitle: {},
-  CardSubtitle: {},
-  CardPriceCurrency: {},
-  CardPrice: {},
+  CardTitle: {
+    fontFamily: FONTFAMILY.poppins_medium,
+    color: COLORS.primaryWhiteHex,
+    fontSize: FONTSIZE.size_16,
+  },
+  CardSubtitle: {
+    fontFamily: FONTFAMILY.poppins_light,
+    color: COLORS.primaryWhiteHex,
+    fontSize: FONTSIZE.size_10,
+  },
+  CardFooterRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: SPACING.space_15,
+  },
+  CardPriceCurrency: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    color: COLORS.primaryOrangeHex,
+    fontSize: FONTSIZE.size_18,
+  },
+  CardPrice: {
+    color: COLORS.primaryWhiteHex,
+  },
 })
 
 export default CoffeeCard
