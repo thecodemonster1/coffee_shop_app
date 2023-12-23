@@ -118,7 +118,7 @@ const HomeScreen = () => {
               </View>
             ))}
           </ScrollView>
-          {/* 2:00:30 in Video */}
+          
           {/* Coffee Flatlist */}
           <FlatList 
             horizontal 
@@ -127,9 +127,22 @@ const HomeScreen = () => {
             contentContainerStyle={styles.FlatListContainer}
             keyExtractor={item => item.id} 
             renderItem={({item}) => {
-              return <TouchableOpacity>
-                <CoffeeCard name={item.name}/>
-              </TouchableOpacity>
+              return (
+                <TouchableOpacity>
+                  <CoffeeCard
+                    id={item.id}
+                    index={item.index}
+                    type={item.type}
+                    roasted={item.roasted}
+                    imagelink_square={item.imagelink_square}
+                    name={item.name}
+                    special_ingredient={item.special_ingredient}
+                    average_rating={item.average_rating}
+                    price={item.prices[2]}
+                    buttonPressHandler={() => {}}
+                  />
+                </TouchableOpacity>
+              )
             }}
           />
           {/* Beans Flatlist */}
@@ -172,7 +185,7 @@ const styles = StyleSheet.create({
   },
   CategoryScrollViewStyle: {
     paddingHorizontal: SPACING.space_20,
-    margingBottom: SPACING.space_20,
+    marginBottom: SPACING.space_20,
   },
   CategoryScrollViewContainer: {
     paddingHorizontal: SPACING.space_15,
