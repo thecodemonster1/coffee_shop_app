@@ -11,7 +11,7 @@ import { BlurView } from '@react-native-community/blur';
 
 const Tab = createBottomTabNavigator();
 const tabBar_active = COLORS.primaryOrangeHex;
-const tabBar_unactive = COLORS.primaryGreyHex;
+const tabBar_unactive = COLORS.primaryLightGreyHex;
 
 const TabNavigator = () => {
   return (
@@ -74,16 +74,19 @@ const TabNavigator = () => {
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    height: 80,
+    height: 70,
     position: 'absolute',
     backgroundColor: COLORS.primaryBlackRGBA,
     borderTopWidth: 0,
-    elevation: 0,
+    elevation: 1,
     borderTopColor: 'transparent',
   },
   BlurViewStyles: {
     position: 'absolute',
-    
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
 });
 

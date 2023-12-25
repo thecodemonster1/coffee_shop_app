@@ -145,7 +145,36 @@ const HomeScreen = () => {
               )
             }}
           />
+
+          <Text style={styles.CoffeeBeansTitle}>Coffee Beans</Text>
+          
           {/* Beans Flatlist */}
+          <FlatList 
+            horizontal 
+            showsHorizontalScrollIndicator={false} 
+            data={BeanList} 
+            contentContainerStyle={[styles.FlatListContainer, {marginBottom: tabBarHeight}]}
+            keyExtractor={item => item.id} 
+            renderItem={({item}) => {
+              return (
+                <TouchableOpacity onPress={() => {}}>
+                  <CoffeeCard
+                    id={item.id}
+                    index={item.index}
+                    type={item.type}
+                    roasted={item.roasted}
+                    imagelink_square={item.imagelink_square}
+                    name={item.name}
+                    special_ingredient={item.special_ingredient}
+                    average_rating={item.average_rating}
+                    price={item.prices[2]}
+                    buttonPressHandler={() => {}}
+                  />
+                </TouchableOpacity>
+              )
+            }}
+          />
+
       </ScrollView>
     </View>
   )
@@ -155,10 +184,12 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   ScreenContainer: {
     flex: 1,
+    
     backgroundColor: COLORS.primaryBlackHex,
   },
   ScrollViewFlex: {
     flexGrow: 1,
+    
   },
   ScreenTitle: {
     fontSize: FONTSIZE.size_28,
@@ -209,6 +240,13 @@ const styles = StyleSheet.create({
     gap: SPACING.space_20,
     paddingVertical: SPACING.space_20,
     paddingHorizontal: SPACING.space_30,
+  },
+  CoffeeBeansTitle: {
+    fontSize: FONTSIZE.size_18,
+    marginLeft: SPACING.space_30,
+    marginTop: SPACING.space_20,
+    fontFamily: FONTFAMILY.poppins_medium,
+    color: COLORS.secondaryLightGreyHex,
   },
 })
 

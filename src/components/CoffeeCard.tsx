@@ -20,7 +20,7 @@ interface CoffeeCardProps {
   price: any;
   buttonPressHandler: any;
 }
-{/* 2:04:44 in Video */}
+
 const CoffeeCard: React.FC<CoffeeCardProps> = ({
   id,
   index,
@@ -37,8 +37,8 @@ return (
   <LinearGradient
     start={{x:0, y:0}}
     end={{x:1, y:1}}
-    style={styles.CardLinearGradientContainer}
-    colors={[COLORS.primaryGreyHex ,COLORS.primaryBlackHex]}>
+    colors={[COLORS.primaryGreyHex ,COLORS.primaryBlackHex]}
+    style={styles.CardLinearGradientContainer}>
       <ImageBackground 
         source={imagelink_square} 
         style={styles.CardImageBG}
