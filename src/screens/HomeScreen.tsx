@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import { FlatList, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useStore } from '../store/store';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
@@ -46,6 +46,7 @@ const HomeScreen = () => {
     getCoffeeList(categoryIndex.category, CoffeeList),
   );
 
+  const ListRef: any = useRef<FlatList>();
   const tabBarHeight = useBottomTabBarHeight();
 
   // console.log('SortedCoffee = ', sortedCoffee.length);
@@ -99,6 +100,10 @@ const HomeScreen = () => {
                 <TouchableOpacity 
                 style={styles.CategoryScrollViewItem}
                 onPress={() => {
+                  ListRef?.current?.ScrollToOffset({
+                    animated: true,
+                    offset: 0,
+                  })
                   setCategoryIndex({index: index, category: categories[index]});
                   setSortedCoffee([
                     ...getCoffeeList(categories[index], CoffeeList)]);
@@ -153,6 +158,7 @@ const HomeScreen = () => {
             horizontal 
             showsHorizontalScrollIndicator={false} 
             data={BeanList} 
+            // 2:33:11 in video
             contentContainerStyle={[styles.FlatListContainer, {marginBottom: tabBarHeight}]}
             keyExtractor={item => item.id} 
             renderItem={({item}) => {
