@@ -64,20 +64,29 @@ const HomeScreen = () => {
   const ListRef: any = useRef<FlatList>();
   const tabBarHeight = useBottomTabBarHeight();
 
-  const searchCoffee = (search : string) => {
+  const searchCoffee = (search: string) => {
     if (search != '') {
       ListRef?.current?.scrollToOffset({
         animated: true,
         offset: 0,
       });
-
       setCategoryIndex({index: 0, category: categories[0]});
       setSortedCoffee([
-        ...CoffeeList.filter((item: any) => 
+        ...CoffeeList.filter((item: any) =>
           item.name.toLowerCase().includes(search.toLowerCase()),
-        ),]
-      );
+        ),
+      ]);
     }
+  };
+
+  const resetSearchCoffee = () => {
+    ListRef?.current?.scrollToOffset({
+      animated: true,
+      offset: 0,
+    });
+    setCategoryIndex({index: 0, category: categories[0]});
+    setSortedCoffee([...CoffeeList]);
+    setSearchText('');
   };
 
   // console.log('SortedCoffee = ', sortedCoffee.length);
@@ -96,7 +105,10 @@ const HomeScreen = () => {
 
         {/* Search Input */}
         <View style={styles.InputContainerComponent}>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity
+            onPress={() => {
+              searchCoffee(searchText);
+            }}>
             <CustomIcon
               style={styles.InputIcon}
               name="search"
@@ -114,10 +126,13 @@ const HomeScreen = () => {
             onChangeText={text => setSearchText(text)}
             placeholderTextColor={COLORS.primaryLightGreyHex}
             style={styles.TextInputContainer}
-          /> 
+          />
           {searchText.length > 0 ? (
-            <TouchableOpacity>
-              <CustomIcon 
+            <TouchableOpacity
+              onPress={() => {
+                resetSearchCoffee();
+              }}>
+              <CustomIcon
                 style={styles.InputIcon}
                 name="close"
                 size={FONTSIZE.size_16}
@@ -169,8 +184,6 @@ const HomeScreen = () => {
             </View>
           ))}
         </ScrollView>
-
-        
 
         {/* Coffee Flatlist */}
 
