@@ -52,7 +52,7 @@ const HomeScreen = () => {
   const [categories, setCategories] = useState(
     getCategoriesFromData(CoffeeList),
   );
-  const [serchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState('');
   const [categoryIndex, setCategoryIndex] = useState({
     index: 1, // if 0 , it will indicate first category
     category: categories[1],
@@ -72,7 +72,7 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
         {/* App Header */}
-        <HeaderBar title={'Home Screen'} />
+        <HeaderBar title={''} />
 
         <Text style={styles.ScreenTitle}>
           Find the Best{'\n'}Coffee For You...
@@ -86,7 +86,7 @@ const HomeScreen = () => {
               name="search"
               size={FONTSIZE.size_18}
               color={
-                serchText.length > 0
+                searchText.length > 0
                   ? COLORS.primaryOrangeHex
                   : COLORS.primaryLightGreyHex
               }
@@ -94,18 +94,26 @@ const HomeScreen = () => {
           </TouchableOpacity>
           <TextInput
             placeholder="Find your coffee..."
-            value={serchText}
+            value={searchText}
             onChangeText={text => setSearchText(text)}
             placeholderTextColor={COLORS.primaryLightGreyHex}
             style={styles.TextInputContainer}
           />
+          {searchText.length > 0 ? (
+            <TouchableOpacity>
+              <CustomIcon 
+                style={styles.InputIcon}
+                name="close"
+                size={FONTSIZE.size_16}
+                color={COLORS.primaryLightGreyHex}
+              />
+            </TouchableOpacity>
+          ) : (
+            <></>
+          )}
         </View>
 
         {/* Category Scroller */}
-        {/* ListRef?.current?.ScrollToOffset({
-                    animated: true,
-                    offset: 0,
-                  }); */}
 
         <ScrollView
           horizontal
@@ -149,6 +157,7 @@ const HomeScreen = () => {
         
 
         {/* Coffee Flatlist */}
+
         <FlatList
           ref={ListRef}
           horizontal
