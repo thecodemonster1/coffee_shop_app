@@ -102,6 +102,10 @@ const HomeScreen = () => {
         </View>
 
         {/* Category Scroller */}
+        {/* ListRef?.current?.ScrollToOffset({
+                    animated: true,
+                    offset: 0,
+                  }); */}
 
         <ScrollView
           horizontal
@@ -114,7 +118,7 @@ const HomeScreen = () => {
               <TouchableOpacity
                 style={styles.CategoryScrollViewItem}
                 onPress={() => {
-                  ListRef?.current?.ScrollToOffset({
+                  ListRef?.current?.scrollToOffset({
                     animated: true,
                     offset: 0,
                   });
@@ -142,8 +146,11 @@ const HomeScreen = () => {
           ))}
         </ScrollView>
 
+        
+
         {/* Coffee Flatlist */}
         <FlatList
+          ref={ListRef}
           horizontal
           showsHorizontalScrollIndicator={false}
           data={sortedCoffee}
@@ -176,7 +183,6 @@ const HomeScreen = () => {
           horizontal
           showsHorizontalScrollIndicator={false}
           data={BeanList}
-          // 2:33:11 in video
           contentContainerStyle={[
             styles.FlatListContainer,
             {marginBottom: tabBarHeight},
