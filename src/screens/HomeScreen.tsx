@@ -64,6 +64,22 @@ const HomeScreen = () => {
   const ListRef: any = useRef<FlatList>();
   const tabBarHeight = useBottomTabBarHeight();
 
+  const searchCoffee = (search : string) => {
+    if (search != '') {
+      ListRef?.current?.scrollToOffset({
+        animated: true,
+        offset: 0,
+      });
+
+      setCategoryIndex({index: 0, category: categories[0]});
+      setSortedCoffee([
+        ...CoffeeList.filter((item: any) => 
+          item.name.toLowerCase().includes(search.toLowerCase()),
+        ),]
+      );
+    }
+  };
+
   // console.log('SortedCoffee = ', sortedCoffee.length);
   return (
     <View style={styles.ScreenContainer}>
@@ -98,7 +114,7 @@ const HomeScreen = () => {
             onChangeText={text => setSearchText(text)}
             placeholderTextColor={COLORS.primaryLightGreyHex}
             style={styles.TextInputContainer}
-          />
+          /> 
           {searchText.length > 0 ? (
             <TouchableOpacity>
               <CustomIcon 
