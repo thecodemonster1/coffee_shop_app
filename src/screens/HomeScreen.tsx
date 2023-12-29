@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {
+  Dimensions,
   FlatList,
   ScrollView,
   StatusBar,
@@ -190,8 +191,13 @@ const HomeScreen = () => {
         <FlatList
           ref={ListRef}
           horizontal
+          ListEmptyComponent={
+            <View style={styles.EmptyListContainer}>
+              <Text style={styles.CategoryText}>No Coffee Available</Text>
+            </View>
+          }
           showsHorizontalScrollIndicator={false}
-          data={sortedCoffee}
+          data={sortedCoffee} // 2:45:05 in Video
           contentContainerStyle={styles.FlatListContainer}
           keyExtractor={item => item.id}
           renderItem={({item}) => {
@@ -308,6 +314,12 @@ const styles = StyleSheet.create({
     gap: SPACING.space_20,
     paddingVertical: SPACING.space_20,
     paddingHorizontal: SPACING.space_30,
+  },
+  EmptyListContainer: {
+    width: Dimensions.get('window').width - SPACING.space_30 * 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: SPACING.space_36 * 3.6,
   },
   CoffeeBeansTitle: {
     fontSize: FONTSIZE.size_18,
