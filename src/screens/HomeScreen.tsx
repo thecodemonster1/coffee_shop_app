@@ -124,7 +124,10 @@ const HomeScreen = () => {
           <TextInput
             placeholder="Find your coffee..."
             value={searchText}
-            onChangeText={text => setSearchText(text)}
+            onChangeText={text => {
+              setSearchText(text);
+              searchCoffee(text);
+            }}
             placeholderTextColor={COLORS.primaryLightGreyHex}
             style={styles.TextInputContainer}
           />
@@ -308,7 +311,7 @@ const styles = StyleSheet.create({
     height: SPACING.space_10,
     width: SPACING.space_10,
     borderRadius: BORDERRADIUS.radius_10,
-    backgroundColor: COLORS.primaryOrangeHex, // Video 1:55:34
+    backgroundColor: COLORS.primaryOrangeHex,
   },
   FlatListContainer: {
     gap: SPACING.space_20,
