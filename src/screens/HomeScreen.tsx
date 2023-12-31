@@ -47,7 +47,7 @@ const getCoffeeList = (category: string, data: any) => {
   }
 };
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}: any) => {
   const CoffeeList = useStore((state: any) => state.CoffeeList);
   const BeanList = useStore((state: any) => state.BeanList);
   const [categories, setCategories] = useState(
@@ -205,7 +205,10 @@ const HomeScreen = () => {
           keyExtractor={item => item.id}
           renderItem={({item}) => {
             return (
-              <TouchableOpacity onPress={() => {}}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.push('Details');
+                }}>
                 <CoffeeCard
                   id={item.id}
                   index={item.index}
@@ -237,7 +240,10 @@ const HomeScreen = () => {
           keyExtractor={item => item.id}
           renderItem={({item}) => {
             return (
-              <TouchableOpacity onPress={() => {}}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.push('Details');
+                }}>
                 <CoffeeCard
                   id={item.id}
                   index={item.index}
@@ -322,7 +328,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width - SPACING.space_30 * 2,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: SPACING.space_36 * 3.6,
+    paddingVertical: SPACING.space_36 * 3.13, // made it same height as if there is any cards (3.13)
   },
   CoffeeBeansTitle: {
     fontSize: FONTSIZE.size_18,
