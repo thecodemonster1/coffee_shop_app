@@ -29,7 +29,10 @@ export const useStore = create(
                   break;
                 }
               }
-              
+              if (size == false){
+                state.CartList[i].prices.push(cartItem.prices[0]);
+              }
+              // 2:57:45 in video
             }
           }
         }),
