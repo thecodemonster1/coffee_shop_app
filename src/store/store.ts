@@ -48,7 +48,16 @@ export const useStore = create(
             state.CartList.push(cartItem);
           }
         }),
-      )
+      ),
+      calculateCartPrice: () => set(produce(state => {
+        let totalPrice = 0;
+        for (let i = 0; i < state.CartList.length; i++) {
+          let tempprice = 0;
+          for (let j = 0; j < state.CartList[i].prices.length; j++) {
+            tempprice += (parseFloat(state.CartList[i].prices[j].price) * state.CartList[i].prices[j].quanity);
+          }
+        }
+      })),
     }),
     {
       name: 'coffee-app', 
