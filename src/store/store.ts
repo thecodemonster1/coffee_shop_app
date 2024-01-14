@@ -51,6 +51,7 @@ export const useStore = create(
             }
           }),
         ),
+        // Something happening here, every time i made any changes it showing errors...
       // calculateCartPrice: () =>
       //   set(
       //     produce(state => {
