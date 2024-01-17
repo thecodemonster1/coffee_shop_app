@@ -78,7 +78,7 @@ export const useStore = create(
                 if (state.CoffeeList[i].id == id) {
                   if (state.CoffeeList[i].favourite == false) {
                     state.CoffeeList[i].favourite = true;
-                    state.FavoritesList.unshift(state.CoffeeList[i]); // making the coffee in the favourite list to top (this is the work of unshift method)
+                    state.FavoritesList.unshift(state.CoffeeList[i]); // making the coffee in the favourite list to top (use of unshift method)
                   }
                   break;
                 }
@@ -88,45 +88,23 @@ export const useStore = create(
                 if (state.BeanList[i].id == id) {
                   if (state.BeanList[i].favourite == false) {
                     state.BeanList[i].favourite = true;
-                    state.FavoritesList.unshift(state.BeanList[i]); // making the coffee in the favourite list to top (this is the work of unshift method)
+                    state.FavoritesList.unshift(state.BeanList[i]); // making the coffee in the favourite list to top (use of unshift method)
                   }
                   break;
                 }
               }
             }
           }),
+        ), //3:13:21 in video
+      deleteFromFavoriteList: (type: string, id: string) =>
+        set(
+          produce(state => {
+            if (type == 'Coffee') {
+              
+            }
+          }),
         ),
 
-      // addToFavoriteList: (type: string, id: string) =>
-      //   set(
-      //     produce(state => {
-      //       if (type == 'Coffee') {
-      //         for (let i = 0; i < state.CoffeeList.length; i++) {
-      //           if (state.CoffeeList[i].id == id) {
-      //             if (state.CoffeeList[i].favourite == false) {
-      //               state.CoffeeList[i].favourite = true;
-      //               state.FavoritesList.unshift(state.CoffeeList[i]);
-      //             } else {
-      //               state.CoffeeList[i].favourite = false;
-      //             }
-      //             break;
-      //           }
-      //         }
-      //       } else if (type == 'Bean') {
-      //         for (let i = 0; i < state.BeanList.length; i++) {
-      //           if (state.BeanList[i].id == id) {
-      //             if (state.BeanList[i].favourite == false) {
-      //               state.BeanList[i].favourite = true;
-      //               state.FavoritesList.unshift(state.BeanList[i]);
-      //             } else {
-      //               state.BeanList[i].favourite = false;
-      //             }
-      //             break;
-      //           }
-      //         }
-      //       }
-      //     }),
-      //   ),
       // deleteFromFavoriteList: (type: string, id: string) =>
       //   set(
       //     produce(state => {
