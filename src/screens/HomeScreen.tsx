@@ -47,31 +47,39 @@ const getCoffeeList = (category: string, data: any) => {
   }
 };
 
-const HomeScreen = ({navigation}: any) => {
+// Functional component HomeScreen that takes navigation as a prop
+const HomeScreen = ({ navigation }: any) => {
+  // Retrieve CoffeeList and BeanList from the state using 'useStore' hook
   const CoffeeList = useStore((state: any) => state.CoffeeList);
   const BeanList = useStore((state: any) => state.BeanList);
-  const [categories, setCategories] = useState(
-    getCategoriesFromData(CoffeeList),
-  );
+
+  // Initialize state variables for categories, search text, category index, and sorted coffee
+  const [categories, setCategories] = useState(getCategoriesFromData(CoffeeList));
   const [searchText, setSearchText] = useState('');
   const [categoryIndex, setCategoryIndex] = useState({
-    index: 1, // if 0 , it will indicate first category
+    index: 1, // if 0, it will indicate the first category
     category: categories[1],
   });
   const [sortedCoffee, setSortedCoffee] = useState(
     getCoffeeList(categoryIndex.category, CoffeeList),
   );
 
+  // Create a ref for the FlatList component
   const ListRef: any = useRef<FlatList>();
+  // Get the height of the bottom tab bar using 'useBottomTabBarHeight' hook
   const tabBarHeight = useBottomTabBarHeight();
 
+  // Function to filter and update the sorted coffee list based on the search text
   const searchCoffee = (search: string) => {
-    if (search != '') {
+    if (search !== '') {
+      // Scroll to the top of the FlatList when a new search is performed
       ListRef?.current?.scrollToOffset({
         animated: true,
         offset: 0,
       });
-      setCategoryIndex({index: 0, category: categories[0]});
+      // Reset the category index to the first category
+      setCategoryIndex({ index: 0, category: categories[0] });
+      // Filter the CoffeeList based on the search text and update the sortedCoffee state
       setSortedCoffee([
         ...CoffeeList.filter((item: any) =>
           item.name.toLowerCase().includes(search.toLowerCase()),
@@ -80,15 +88,22 @@ const HomeScreen = ({navigation}: any) => {
     }
   };
 
+  // Function to reset the search and show the entire CoffeeList
   const resetSearchCoffee = () => {
+    // Scroll to the top of the FlatList when the search is reset
     ListRef?.current?.scrollToOffset({
       animated: true,
       offset: 0,
     });
-    setCategoryIndex({index: 0, category: categories[0]});
-    setSortedCoffee([...CoffeeList]);
-    setSearchText('');
+    setCategoryIndex({ index: 0, category: categories[0] }); // Reset the category index to the first category
+    setSortedCoffee([...CoffeeList]);// Reset the sortedCoffee state to the original CoffeeList
+    setSearchText(''); // Clear the search text
   };
+
+  // The rest of your component logic goes here
+
+  // Return the JSX for the HomeScreen component
+
 
   // console.log('SortedCoffee = ', sortedCoffee.length);
   return (
@@ -348,3 +363,49 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+
+
+
+// Commented Code is Above
+// const HomeScreen = ({navigation}: any) => {
+//   const CoffeeList = useStore((state: any) => state.CoffeeList);
+//   const BeanList = useStore((state: any) => state.BeanList);
+//   const [categories, setCategories] = useState(
+//     getCategoriesFromData(CoffeeList),
+//   );
+//   const [searchText, setSearchText] = useState('');
+//   const [categoryIndex, setCategoryIndex] = useState({
+//     index: 1, // if 0 , it will indicate first category
+//     category: categories[1],
+//   });
+//   const [sortedCoffee, setSortedCoffee] = useState(
+//     getCoffeeList(categoryIndex.category, CoffeeList),
+//   );
+
+//   const ListRef: any = useRef<FlatList>();
+//   const tabBarHeight = useBottomTabBarHeight();
+
+//   const searchCoffee = (search: string) => {
+//     if (search != '') {
+//       ListRef?.current?.scrollToOffset({
+//         animated: true,
+//         offset: 0,
+//       });
+//       setCategoryIndex({index: 0, category: categories[0]});
+//       setSortedCoffee([
+//         ...CoffeeList.filter((item: any) =>
+//           item.name.toLowerCase().includes(search.toLowerCase()),
+//         ),
+//       ]);
+//     }
+//   };
+
+//   const resetSearchCoffee = () => {
+//     ListRef?.current?.scrollToOffset({
+//       animated: true,
+//       offset: 0,
+//     });
+//     setCategoryIndex({index: 0, category: categories[0]});
+//     setSortedCoffee([...CoffeeList]);
+//     setSearchText('');
+//   };
