@@ -70,7 +70,7 @@ export const useStore = create(
             state.CartPrice = totalprice.toFixed(2).toString();
           }),
         ), // 3:08 in video
-      addToFavouriteList: (type: string, id: string) =>
+      addToFavoriteList: (type: string, id: string) =>
         set(
           produce(state => {
             if (type == 'Coffee') {
@@ -100,8 +100,33 @@ export const useStore = create(
         set(
           produce(state => {
             if (type == 'Coffee') {
-              
+              for (let i = 0; i < state.CoffeeList.length; i++) {
+                if (state.CoffeeList[i].id == id) {
+                  if (state.CoffeeList[i].favourite == true) {
+                    state.CoffeeList[i].favourite = false;
+                  }
+                  break;
+                }
+              }
+            } else if (type == 'Beans') {
+              // Bean
+              for (let i = 0; i < state.BeanList.length; i++) {
+                if (state.BeanList[i].id == id) {
+                  if (state.BeanList[i].favourite == true) {
+                    state.BeanList[i].favourite = false;
+                  }
+                  break;
+                }
+              }
             }
+            let spliceIndex = -1;
+            for (let i = 0; i < state.FavoritesList.length; i++) {
+              if (state.FavoritesList[i].id === id) {
+                spliceIndex = i;
+                break;
+              }
+            }
+            state.FavoritesList.splice(spliceIndex, 1);
           }),
         ),
 
