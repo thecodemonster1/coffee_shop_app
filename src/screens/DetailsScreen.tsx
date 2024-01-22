@@ -16,24 +16,25 @@ const DetailsScreen = ({navigation, route}: any) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
-        <ImageBackgroundInfo 
-        EnableBackHandler={true}
-        imagelink_portrait={itemsOfIndex.imagelink_portrait}
-        type={itemsOfIndex.type}
-        id={itemsOfIndex.id}
-        favourite={itemsOfIndex.favourite}
-        name={itemsOfIndex.name}
-        special_ingredient={itemsOfIndex.special_ingredient}
-        ingredients={itemsOfIndex.ingredients}
-        average_rating={itemsOfIndex.average_rating}
-        ratings_count={itemsOfIndex.ratings_count}
-        roasted={itemsOfIndex.roasted}
-        BackHandler={() => {}}
-        ToggleFavorite={() => {}} />
+        <ImageBackgroundInfo
+          EnableBackHandler={true}
+          imagelink_portrait={itemsOfIndex.imagelink_portrait}
+          type={itemsOfIndex.type}
+          id={itemsOfIndex.id}
+          favourite={itemsOfIndex.favourite}
+          name={itemsOfIndex.name}
+          special_ingredient={itemsOfIndex.special_ingredient}
+          ingredients={itemsOfIndex.ingredients}
+          average_rating={itemsOfIndex.average_rating}
+          ratings_count={itemsOfIndex.ratings_count}
+          roasted={itemsOfIndex.roasted}
+          BackHandler={() => {}}
+          ToggleFavorite={() => {}}
+        />
       </ScrollView>
     </View>
   );
-}; // 3:25;18 in video
+}; // 3:37:36 in video
 
 const styles = StyleSheet.create({
   ScreenContainer: {

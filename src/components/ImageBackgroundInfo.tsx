@@ -1,5 +1,11 @@
 import React from 'react';
-import {ImageBackground, ImageProps, StyleSheet, Text, View} from 'react-native';
+import {
+  ImageBackground,
+  ImageProps,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 interface ImageBackgroundInfoProps {
   EnableBackHandler: boolean;
@@ -34,11 +40,19 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
 }) => {
   return (
     <View>
-      <ImageBackground source={imagelink_portrait}></ImageBackground>
+      <ImageBackground
+        source={imagelink_portrait}
+        style={styles.ItemBackgroundImage}></ImageBackground>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  ItemBackgroundImage: {
+    width: '100%',
+    aspectRatio: 20 / 25,
+    justifyContent: 'space-between',
+  },
+});
 
 export default ImageBackgroundInfo;
