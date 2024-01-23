@@ -4,8 +4,11 @@ import {
   ImageProps,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
+import GradientBGIcon from './GradientBGIcon';
+import {COLORS, FONTSIZE, SPACING} from '../theme/theme';
 
 interface ImageBackgroundInfoProps {
   EnableBackHandler: boolean;
@@ -42,7 +45,40 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
     <View>
       <ImageBackground
         source={imagelink_portrait}
-        style={styles.ItemBackgroundImage}></ImageBackground>
+        style={styles.ItemBackgroundImage}>
+        {EnableBackHandler ? (
+          <View style={styles.ImageHeaderBarContainerWithBack}>
+            <TouchableOpacity>
+              <GradientBGIcon
+                name="left"
+                color={COLORS.primaryLightGreyHex}
+                size={FONTSIZE.size_16}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <GradientBGIcon
+                name="like"
+                color={
+                  favourite ? COLORS.primaryRedHex : COLORS.primaryLightGreyHex
+                }
+                size={FONTSIZE.size_16}
+              />
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View style={styles.ImageHeaderBarContainerWithoutBack}>
+            <TouchableOpacity>
+              <GradientBGIcon
+                name="like"
+                color={
+                  favourite ? COLORS.primaryRedHex : COLORS.primaryLightGreyHex
+                }
+                size={FONTSIZE.size_16}
+              />
+            </TouchableOpacity>
+          </View>
+        )}
+      </ImageBackground>
     </View>
   );
 };
@@ -52,6 +88,18 @@ const styles = StyleSheet.create({
     width: '100%',
     aspectRatio: 20 / 25,
     justifyContent: 'space-between',
+  },
+  ImageHeaderBarContainerWithBack: {
+    padding: SPACING.space_30,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  ImageHeaderBarContainerWithoutBack: {
+    padding: SPACING.space_30,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end', // because of one item (Only like button)
   },
 });
 
