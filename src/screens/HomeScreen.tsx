@@ -48,17 +48,19 @@ const getCoffeeList = (category: string, data: any) => {
 };
 
 // Functional component HomeScreen that takes navigation as a prop
-const HomeScreen = ({ navigation }: any) => {
+const HomeScreen = ({navigation}: any) => {
   // Retrieve CoffeeList and BeanList from the state using 'useStore' hook
   const CoffeeList = useStore((state: any) => state.CoffeeList);
   const BeanList = useStore((state: any) => state.BeanList);
 
   // Initialize state variables for categories, search text, category index, and sorted coffee
-  const [categories, setCategories] = useState(getCategoriesFromData(CoffeeList));
+  const [categories, setCategories] = useState(
+    getCategoriesFromData(CoffeeList),
+  );
   const [searchText, setSearchText] = useState('');
   const [categoryIndex, setCategoryIndex] = useState({
-    index: 1, // if 0, it will indicate the first category
-    category: categories[1],
+    index: 0, // if 0, it will indicate the first category
+    category: categories[0],
   });
   const [sortedCoffee, setSortedCoffee] = useState(
     getCoffeeList(categoryIndex.category, CoffeeList),
@@ -78,7 +80,7 @@ const HomeScreen = ({ navigation }: any) => {
         offset: 0,
       });
       // Reset the category index to the first category
-      setCategoryIndex({ index: 0, category: categories[0] });
+      setCategoryIndex({index: 0, category: categories[0]});
       // Filter the CoffeeList based on the search text and update the sortedCoffee state
       setSortedCoffee([
         ...CoffeeList.filter((item: any) =>
@@ -95,15 +97,14 @@ const HomeScreen = ({ navigation }: any) => {
       animated: true,
       offset: 0,
     });
-    setCategoryIndex({ index: 0, category: categories[0] }); // Reset the category index to the first category
-    setSortedCoffee([...CoffeeList]);// Reset the sortedCoffee state to the original CoffeeList
+    setCategoryIndex({index: 0, category: categories[0]}); // Reset the category index to the first category
+    setSortedCoffee([...CoffeeList]); // Reset the sortedCoffee state to the original CoffeeList
     setSearchText(''); // Clear the search text
   };
 
   // The rest of your component logic goes here
 
   // Return the JSX for the HomeScreen component
-
 
   // console.log('SortedCoffee = ', sortedCoffee.length);
   return (
@@ -363,8 +364,6 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
-
-
 
 // Commented Code is Above
 // const HomeScreen = ({navigation}: any) => {

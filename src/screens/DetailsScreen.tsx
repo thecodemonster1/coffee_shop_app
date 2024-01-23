@@ -7,8 +7,8 @@ import ImageBackgroundInfo from '../components/ImageBackgroundInfo';
 
 const DetailsScreen = ({navigation, route}: any) => {
   // console.log('route = ', route.params); // confirm (test) the parameters are working
-  const itemsOfIndex = useStore((state: any) =>
-    route.params.type == 'coffee' ? state.CoffeeList : state.BeanList,
+  const ItemOfIndex = useStore((state: any) =>
+    route.params.type == 'Coffee' ? state.CoffeeList : state.BeanList,
   )[route.params.index];
   return (
     <View style={styles.ScreenContainer}>
@@ -18,16 +18,16 @@ const DetailsScreen = ({navigation, route}: any) => {
         contentContainerStyle={styles.ScrollViewFlex}>
         <ImageBackgroundInfo
           EnableBackHandler={true}
-          imagelink_portrait={itemsOfIndex.imagelink_portrait}
-          type={itemsOfIndex.type}
-          id={itemsOfIndex.id}
-          favourite={itemsOfIndex.favourite}
-          name={itemsOfIndex.name}
-          special_ingredient={itemsOfIndex.special_ingredient}
-          ingredients={itemsOfIndex.ingredients}
-          average_rating={itemsOfIndex.average_rating}
-          ratings_count={itemsOfIndex.ratings_count}
-          roasted={itemsOfIndex.roasted}
+          imagelink_portrait={ItemOfIndex.imagelink_portrait}
+          type={ItemOfIndex.type}
+          id={ItemOfIndex.id}
+          favourite={ItemOfIndex.favourite}
+          name={ItemOfIndex.name}
+          special_ingredient={ItemOfIndex.special_ingredient}
+          ingredients={ItemOfIndex.ingredients}
+          average_rating={ItemOfIndex.average_rating}
+          ratings_count={ItemOfIndex.ratings_count}
+          roasted={ItemOfIndex.roasted}
           BackHandler={() => {}}
           ToggleFavorite={() => {}}
         />
