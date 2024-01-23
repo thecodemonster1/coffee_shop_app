@@ -48,16 +48,18 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
         style={styles.ItemBackgroundImage}>
         {EnableBackHandler ? (
           <View style={styles.ImageHeaderBarContainerWithBack}>
-            <TouchableOpacity onPress={() =>
-              BackHandler()
-            }>
+            <TouchableOpacity onPress={() => BackHandler()}>
               <GradientBGIcon
                 name="left"
                 color={COLORS.primaryLightGreyHex}
                 size={FONTSIZE.size_16}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                ToggleFavorite(favourite, type, id);
+              }}>
+              {/* 3:44:37 in video */}
               <GradientBGIcon
                 name="like"
                 color={

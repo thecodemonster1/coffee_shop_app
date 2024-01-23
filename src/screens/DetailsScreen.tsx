@@ -11,10 +11,19 @@ const DetailsScreen = ({navigation, route}: any) => {
     route.params.type == 'Coffee' ? state.CoffeeList : state.BeanList,
   )[route.params.index];
 
+  const addToFavoriteList = useStore((state: any) => state.addToFavoriteList);
+  const deleteFromFavoriteList = useStore(
+    (state: any) => state.deleteFromFavoriteList,
+  );
+
+  const ToggleFavorite = (favorites: boolean, type: string, id: string) => {
+    favorites ? deleteFromFavoriteList(type, id) : addToFavoriteList(type, id);
+  };
+
   const BackHandler = () => {
     navigation.goBack();
     // navigation.pop();
-  }
+  };
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -34,7 +43,7 @@ const DetailsScreen = ({navigation, route}: any) => {
           ratings_count={ItemOfIndex.ratings_count}
           roasted={ItemOfIndex.roasted}
           BackHandler={BackHandler}
-          ToggleFavorite={() => {}}
+          ToggleFavorite={ToggleFavorite} // 3:48:52 in video
         />
       </ScrollView>
     </View>
