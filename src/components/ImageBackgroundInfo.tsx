@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import GradientBGIcon from './GradientBGIcon';
 import {COLORS, FONTSIZE, SPACING} from '../theme/theme';
+import CustomIcon from './CustomIcon';
 
 interface ImageBackgroundInfoProps {
   EnableBackHandler: boolean;
@@ -82,6 +83,47 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
             </TouchableOpacity>
           </View>
         )}
+        <View style={styles.ImageInfoOuterContainer}>
+          <View style={styles.ImageInfoInnerContainer}>
+            <View style={styles.InfoContainerRow}>
+              <View>
+                <Text style={styles.ItemTitleText}>{name}</Text>
+                <Text style={styles.ItemSubtitleText}>
+                  {special_ingredient}
+                </Text>
+              </View>
+              <View style={styles.ItemPropertiesContainer}>
+                <View style={styles.ProperFirst}>
+                  <CustomIcon
+                    name={type == 'Bean' ? 'bean' : 'beans'}
+                    size={type == 'Bean' ? FONTSIZE.size_18 : FONTSIZE.size_24}
+                    color={COLORS.primaryOrangeHex}
+                  />
+                  <Text
+                    style={[
+                      styles.PropertyTextFirst,
+                      {
+                        marginTop:
+                          type == 'Bean'
+                            ? SPACING.space_4 + SPACING.space_2
+                            : 0,
+                      }, // This is conditional styles
+                    ]}>
+                    {type}
+                  </Text>
+                </View>
+                <View style={styles.ProperFirst}>
+                  <CustomIcon
+                    name={type == 'Bean' ? 'location' : 'drop'}
+                    size={FONTSIZE.size_16}
+                    color={COLORS.primaryOrangeHex}
+                  />
+                  <Text style={styles.PropertyTextFirst}>{ingredients}</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -105,6 +147,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end', // because of one item (Only like button)
   },
+  ImageInfoOuterContainer: {},
+  ImageInfoInnerContainer: {},
+  InfoContainerRow: {},
+  ItemTitleText: {},
+  ItemSubtitleText: {},
+  ItemPropertiesContainer: {},
+  ProperFirst: {},
+  PropertyTextFirst: {},
 });
 
 export default ImageBackgroundInfo;
