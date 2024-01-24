@@ -8,7 +8,13 @@ import {
   View,
 } from 'react-native';
 import GradientBGIcon from './GradientBGIcon';
-import {COLORS, FONTSIZE, SPACING} from '../theme/theme';
+import {
+  BORDERRADIUS,
+  COLORS,
+  FONTFAMILY,
+  FONTSIZE,
+  SPACING,
+} from '../theme/theme';
 import CustomIcon from './CustomIcon';
 
 interface ImageBackgroundInfoProps {
@@ -147,14 +153,50 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end', // because of one item (Only like button)
   },
-  ImageInfoOuterContainer: {},
-  ImageInfoInnerContainer: {},
-  InfoContainerRow: {},
-  ItemTitleText: {},
-  ItemSubtitleText: {},
-  ItemPropertiesContainer: {},
-  ProperFirst: {},
-  PropertyTextFirst: {},
+  ImageInfoOuterContainer: {
+    paddingVertical: SPACING.space_24,
+    paddingHorizontal: SPACING.space_30,
+    backgroundColor: COLORS.primaryBlackRGBA,
+    borderTopLeftRadius: BORDERRADIUS.radius_20 * 2,
+    borderTopRightRadius: BORDERRADIUS.radius_20 * 2,
+  },
+  ImageInfoInnerContainer: {
+    justifyContent: 'space-between',
+    gap: SPACING.space_15,
+  },
+  InfoContainerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  ItemTitleText: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_24,
+    color: COLORS.primaryWhiteHex,
+  },
+  ItemSubtitleText: {
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: FONTSIZE.size_12,
+    color: COLORS.primaryWhiteHex,
+  },
+  ItemPropertiesContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SPACING.space_20,
+  },
+  ProperFirst: {
+    height: 55,
+    width: 55,
+    borderRadius: BORDERRADIUS.radius_15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.primaryBlackHex,
+  },
+  PropertyTextFirst: {
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: FONTSIZE.size_10,
+    color: COLORS.primaryWhiteHex,
+  },
 });
 
 export default ImageBackgroundInfo;
