@@ -124,7 +124,7 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
                     size={FONTSIZE.size_16}
                     color={COLORS.primaryOrangeHex}
                   />
-                  <Text style={styles.PropertyTextFirst}>{ingredients}</Text>
+                  <Text style={styles.PropertyTextLast}>{ingredients}</Text>
                 </View>
               </View>
             </View>
@@ -136,7 +136,7 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
                   size={FONTSIZE.size_20}
                 />
                 <Text style={styles.RatingText}>{average_rating}</Text>
-                <Text style={styles.RatingCountText}>{ratings_count}</Text>
+                <Text style={styles.RatingCountText}>({ratings_count})</Text>
               </View>
               <View style={styles.RoastedContainer}>
                 <Text style={styles.RoastedText}>{roasted}</Text>
@@ -211,15 +211,40 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_10,
     color: COLORS.primaryWhiteHex,
   },
+  PropertyTextLast: {
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: FONTSIZE.size_10,
+    color: COLORS.primaryWhiteHex,
+    marginTop: SPACING.space_2 + SPACING.space_4,
+  },
   RatingContainer: {
     flexDirection: 'row',
     gap: SPACING.space_10,
     alignItems: 'center',
   },
-  RatingText: {},
-  RatingCountText: {},
-  RoastedContainer: {},
-  RoastedText: {},
+  RatingText: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_18,
+    color: COLORS.primaryWhiteHex,
+  },
+  RatingCountText: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_12,
+    color: COLORS.primaryWhiteHex,
+  },
+  RoastedContainer: {
+    height: 55,
+    width: 55*2 + SPACING.space_20,
+    borderRadius: BORDERRADIUS.radius_15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.primaryBlackHex,
+  },
+  RoastedText: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_12,
+    color: COLORS.primaryWhiteHex,
+  },
 });
 
 export default ImageBackgroundInfo;
