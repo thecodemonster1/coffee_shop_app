@@ -128,6 +128,20 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
                 </View>
               </View>
             </View>
+            <View style={styles.InfoContainerRow}>
+              <View style={styles.RatingContainer}>
+                <CustomIcon
+                  name={'star'}
+                  color={COLORS.primaryOrangeHex}
+                  size={FONTSIZE.size_20}
+                />
+                <Text style={styles.RatingText}>{average_rating}</Text>
+                <Text style={styles.RatingCountText}>{ratings_count}</Text>
+              </View>
+              <View style={styles.RoastedContainer}>
+                <Text style={styles.RoastedText}>{roasted}</Text>
+              </View>
+            </View>
           </View>
         </View>
       </ImageBackground>
@@ -197,6 +211,15 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_10,
     color: COLORS.primaryWhiteHex,
   },
+  RatingContainer: {
+    flexDirection: 'row',
+    gap: SPACING.space_10,
+    alignItems: 'center',
+  },
+  RatingText: {},
+  RatingCountText: {},
+  RoastedContainer: {},
+  RoastedText: {},
 });
 
 export default ImageBackgroundInfo;
