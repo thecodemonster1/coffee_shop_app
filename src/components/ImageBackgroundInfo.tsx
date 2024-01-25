@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
   },
   RoastedContainer: {
     height: 55,
-    width: 55*2 + SPACING.space_20,
+    width: 55 * 2 + SPACING.space_20,
     borderRadius: BORDERRADIUS.radius_15,
     justifyContent: 'center',
     alignItems: 'center',
