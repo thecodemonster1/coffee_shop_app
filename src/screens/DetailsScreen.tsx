@@ -1,4 +1,11 @@
-import {ScrollView, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import React from 'react';
 import {useStore} from '../store/store';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -15,6 +22,8 @@ const DetailsScreen = ({navigation, route}: any) => {
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,
   );
+
+  const [fullDesc, setFullDesc] = useStore(false);
 
   const ToggleFavorite = (favorites: boolean, type: string, id: string) => {
     favorites ? deleteFromFavoriteList(type, id) : addToFavoriteList(type, id);
@@ -45,6 +54,24 @@ const DetailsScreen = ({navigation, route}: any) => {
           BackHandler={BackHandler}
           ToggleFavorite={ToggleFavorite} // 3:48:52 in video
         />
+        <View style={styles.FooterInfoArea}>
+          <Text style={styles.InfoTitle}>Description</Text>
+          {fullDesc ? (
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setFullDesc(prev => !prev);
+              }}>
+              <Text style={styles.DescriptionText}>{ItemOfIndex.description}</Text>
+            </TouchableWithoutFeedback>
+          ) : (
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setFullDesc(prev => !prev);
+              }}>
+                <Text numberOfLines={3} style={styles.DescriptionText}>{ItemOfIndex.description}</Text>
+              </TouchableWithoutFeedback>
+          )}
+        </View>
       </ScrollView>
     </View>
   );
@@ -59,6 +86,9 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     // backgroundColor: 'green',
   },
+  FooterInfoArea: {},
+  InfoTitle: {},
+  DescriptionText: {},
 });
 
 export default DetailsScreen;
