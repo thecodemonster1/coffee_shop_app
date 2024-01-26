@@ -6,10 +6,10 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {useStore} from '../store/store';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {COLORS} from '../theme/theme';
+import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import ImageBackgroundInfo from '../components/ImageBackgroundInfo';
 
 const DetailsScreen = ({navigation, route}: any) => {
@@ -23,7 +23,7 @@ const DetailsScreen = ({navigation, route}: any) => {
     (state: any) => state.deleteFromFavoriteList,
   );
 
-  const [fullDesc, setFullDesc] = useStore(false);
+  const [fullDesc, setFullDesc] = useState(false);
 
   const ToggleFavorite = (favorites: boolean, type: string, id: string) => {
     favorites ? deleteFromFavoriteList(type, id) : addToFavoriteList(type, id);
@@ -61,15 +61,19 @@ const DetailsScreen = ({navigation, route}: any) => {
               onPress={() => {
                 setFullDesc(prev => !prev);
               }}>
-              <Text style={styles.DescriptionText}>{ItemOfIndex.description}</Text>
+              <Text style={styles.DescriptionText}>
+                {ItemOfIndex.description}
+              </Text>
             </TouchableWithoutFeedback>
           ) : (
             <TouchableWithoutFeedback
               onPress={() => {
                 setFullDesc(prev => !prev);
               }}>
-                <Text numberOfLines={3} style={styles.DescriptionText}>{ItemOfIndex.description}</Text>
-              </TouchableWithoutFeedback>
+              <Text numberOfLines={3} style={styles.DescriptionText}>
+                {ItemOfIndex.description}
+              </Text>
+            </TouchableWithoutFeedback>
           )}
         </View>
       </ScrollView>
@@ -86,9 +90,16 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     // backgroundColor: 'green',
   },
-  FooterInfoArea: {},
-  InfoTitle: {},
-  DescriptionText: {},
+  FooterInfoArea: {
+    padding: SPACING.space_20,
+  },
+  InfoTitle: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_16,
+    color: COLORS.primaryWhiteHex,
+    marginBottom: SPACING.space_10,
+  },
+  DescriptionText: {}, // 4:12:53 in video
 });
 
 export default DetailsScreen;
