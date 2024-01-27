@@ -3,6 +3,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
@@ -74,7 +75,15 @@ const DetailsScreen = ({navigation, route}: any) => {
                 {ItemOfIndex.description}
               </Text>
             </TouchableWithoutFeedback>
-          )} 
+          )}
+          <Text style={styles.InfoTitle}>Size</Text>
+          <View style={styles.SizeOuterContainer}>
+            {ItemOfIndex.prices.map((data: any) => (
+              <TouchableOpacity key={data.size}>
+                <Text>{data.size}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -105,7 +114,8 @@ const styles = StyleSheet.create({
     fontsize: FONTSIZE.size_14,
     color: COLORS.primaryWhiteHex,
     marginBottom: SPACING.space_30,
-  }, // 4:12:53 in video
+  }, 
+  SizeOuterContainer: {},
 });
 
 export default DetailsScreen;
