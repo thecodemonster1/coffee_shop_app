@@ -74,7 +74,7 @@ const DetailsScreen = ({navigation, route}: any) => {
                 {ItemOfIndex.description}
               </Text>
             </TouchableWithoutFeedback>
-          )}
+          )} 
         </View>
       </ScrollView>
     </View>
@@ -99,7 +99,13 @@ const styles = StyleSheet.create({
     color: COLORS.primaryWhiteHex,
     marginBottom: SPACING.space_10,
   },
-  DescriptionText: {}, // 4:12:53 in video
+  DescriptionText: {
+    letterSpacing: 0.5,
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontsize: FONTSIZE.size_14,
+    color: COLORS.primaryWhiteHex,
+    marginBottom: SPACING.space_30,
+  }, // 4:12:53 in video
 });
 
 export default DetailsScreen;
