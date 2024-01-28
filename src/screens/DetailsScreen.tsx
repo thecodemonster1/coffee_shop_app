@@ -10,7 +10,7 @@ import {
 import React, {useState} from 'react';
 import {useStore} from '../store/store';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
+import {BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import ImageBackgroundInfo from '../components/ImageBackgroundInfo';
 
 const DetailsScreen = ({navigation, route}: any) => {
@@ -102,7 +102,7 @@ const DetailsScreen = ({navigation, route}: any) => {
                       color:
                         data.size == price.size
                           ? COLORS.primaryOrangeHex
-                          : COLORS.primaryDarkGreyHex,
+                          : COLORS.primaryLightGreyHex,
                     },
                   ]}>
                   {data.size}
@@ -142,9 +142,24 @@ const styles = StyleSheet.create({
     color: COLORS.primaryWhiteHex,
     marginBottom: SPACING.space_30,
   },
-  SizeOuterContainer: {},
-  SizeBox: {},
-  SizeText: {},
+  SizeOuterContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: SPACING.space_20,
+  },
+  SizeBox: {
+    flex: 1,
+    backgroundColor: COLORS.primaryDarkGreyHex,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: SPACING.space_24 * 2,
+    borderRadius: BORDERRADIUS.radius_10,
+    borderWidth: 2,
+  },
+  SizeText: {
+    fontFamily: FONTFAMILY.poppins_medium,
+  },
 });
 
 export default DetailsScreen;
