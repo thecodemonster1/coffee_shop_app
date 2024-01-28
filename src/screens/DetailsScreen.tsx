@@ -82,6 +82,7 @@ const DetailsScreen = ({navigation, route}: any) => {
             {ItemOfIndex.prices.map((data: any) => (
               <TouchableOpacity
                 key={data.size}
+                onPress={() => setPrice(data)}
                 style={[
                   styles.SizeBox,
                   {
