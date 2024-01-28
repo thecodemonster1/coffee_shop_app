@@ -24,6 +24,7 @@ const DetailsScreen = ({navigation, route}: any) => {
     (state: any) => state.deleteFromFavoriteList,
   );
 
+  const [price, setPrice] = useState(ItemOfIndex.prices[0]); // for get price datas
   const [fullDesc, setFullDesc] = useState(false);
 
   const ToggleFavorite = (favorites: boolean, type: string, id: string) => {
@@ -79,8 +80,34 @@ const DetailsScreen = ({navigation, route}: any) => {
           <Text style={styles.InfoTitle}>Size</Text>
           <View style={styles.SizeOuterContainer}>
             {ItemOfIndex.prices.map((data: any) => (
-              <TouchableOpacity key={data.size}>
-                <Text>{data.size}</Text>
+              <TouchableOpacity
+                key={data.size}
+                style={[
+                  styles.SizeBox,
+                  {
+                    borderColor:
+                      data.size == price.size
+                        ? COLORS.primaryOrangeHex
+                        : COLORS.primaryDarkGreyHex,
+                  },
+                ]}>
+                <Text
+                  style={[
+                    styles.SizeText,
+                    {
+                      fontSize:
+                        ItemOfIndex.type == 'bean'
+                          ? FONTSIZE.size_14
+                          : FONTSIZE.size_16,
+                      color:
+                        data.size == price.size
+                          ? COLORS.primaryOrangeHex
+                          : COLORS.primaryDarkGreyHex,
+                    },
+                  ]}>
+                  {data.size}
+                </Text>
+                {/* 4:17:02 in video */}
               </TouchableOpacity>
             ))}
           </View>
@@ -114,8 +141,10 @@ const styles = StyleSheet.create({
     fontsize: FONTSIZE.size_14,
     color: COLORS.primaryWhiteHex,
     marginBottom: SPACING.space_30,
-  }, 
+  },
   SizeOuterContainer: {},
+  SizeBox: {},
+  SizeText: {},
 });
 
 export default DetailsScreen;
