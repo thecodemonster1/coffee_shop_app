@@ -10,8 +10,15 @@ import {
 import React, {useState} from 'react';
 import {useStore} from '../store/store';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
+import {
+  BORDERRADIUS,
+  COLORS,
+  FONTFAMILY,
+  FONTSIZE,
+  SPACING,
+} from '../theme/theme';
 import ImageBackgroundInfo from '../components/ImageBackgroundInfo';
+import PaymentFooter from '../components/PaymentFooter';
 
 const DetailsScreen = ({navigation, route}: any) => {
   // console.log('route = ', route.params); // confirm (test) the parameters are working
@@ -54,7 +61,7 @@ const DetailsScreen = ({navigation, route}: any) => {
           ratings_count={ItemOfIndex.ratings_count}
           roasted={ItemOfIndex.roasted}
           BackHandler={BackHandler}
-          ToggleFavorite={ToggleFavorite} // 3:48:52 in video
+          ToggleFavorite={ToggleFavorite}
         />
         <View style={styles.FooterInfoArea}>
           <Text style={styles.InfoTitle}>Description</Text>
@@ -108,15 +115,20 @@ const DetailsScreen = ({navigation, route}: any) => {
                   ]}>
                   {data.size}
                 </Text>
-                {/* 4:17:02 in video */}
               </TouchableOpacity>
             ))}
           </View>
         </View>
+        <PaymentFooter
+          price={price}
+          buttonTitle="Add to Cart"
+          buttonPressHandler={() => {}}
+        />
+        {/* 4:24:23 in video */}
       </ScrollView>
     </View>
   );
-}; // 3:37:36 in video
+};
 
 const styles = StyleSheet.create({
   ScreenContainer: {
@@ -139,7 +151,7 @@ const styles = StyleSheet.create({
   DescriptionText: {
     letterSpacing: 0.5,
     fontFamily: FONTFAMILY.poppins_regular,
-    fontsize: FONTSIZE.size_14,
+    fontSize: FONTSIZE.size_14,
     color: COLORS.primaryWhiteHex,
     marginBottom: SPACING.space_30,
   },
