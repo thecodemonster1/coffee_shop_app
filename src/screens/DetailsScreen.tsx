@@ -31,6 +31,9 @@ const DetailsScreen = ({navigation, route}: any) => {
     (state: any) => state.deleteFromFavoriteList,
   );
 
+  const addToCart = useStore((state: any) => state.addToCart);
+  const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
+
   const [price, setPrice] = useState(ItemOfIndex.prices[0]); // for get price datas
   const [fullDesc, setFullDesc] = useState(false);
 
@@ -42,6 +45,30 @@ const DetailsScreen = ({navigation, route}: any) => {
     navigation.goBack();
     // navigation.pop();
   };
+
+  const addToCarthandler = ({
+    id,
+    index,
+    name,
+    roasted,
+    imagelink_square,
+    special_ingridient,
+    type,
+    price
+  }: any) => {
+    addToCart({
+      id,
+      index,
+      name,
+      roasted,
+      imagelink_square,
+      special_ingridient,
+      type,
+      prices: [{...price, quantity: 1}],
+    })
+    calculateCartPrice();
+  }
+
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />

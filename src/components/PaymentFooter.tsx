@@ -1,6 +1,12 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import { BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../theme/theme';
+import {
+  BORDERRADIUS,
+  COLORS,
+  FONTFAMILY,
+  FONTSIZE,
+  SPACING,
+} from '../theme/theme';
 
 interface PriceProps {
   price: string;
@@ -26,7 +32,9 @@ const PaymentFooter: React.FC<PaymentFooterProps> = ({
           {price.currency} <Text style={styles.Price}>{price.price}</Text>
         </Text>
       </View>
-      <TouchableOpacity style={styles.PayButton}>
+      <TouchableOpacity
+        style={styles.PayButton}
+        onPress={() => buttonPressHandler()}> 
         <Text style={styles.ButtonText}>{buttonTitle}</Text>
       </TouchableOpacity>
     </View>
