@@ -66,7 +66,8 @@ const DetailsScreen = ({navigation, route}: any) => {
       type,
       prices: [{...price, quantity: 1}],
     })
-    calculateCartPrice();
+    calculateCartPrice(); //4:40:38 in video
+    navigation.navigate('Cart');
   }
 
   return (
@@ -149,7 +150,18 @@ const DetailsScreen = ({navigation, route}: any) => {
         <PaymentFooter
           price={price}
           buttonTitle="Add to Cart"
-          buttonPressHandler={() => {}}
+          buttonPressHandler={() => {
+            addToCarthandler({
+              id: ItemOfIndex.id,
+              index: ItemOfIndex.index,
+              name: ItemOfIndex.name,
+              roasted: ItemOfIndex.roasted,
+              imagelink_square: ItemOfIndex.imagelink_square,
+              special_ingredients: ItemOfIndex.special_ingredients,
+              type: ItemOfIndex.type,
+              price: price,
+            });
+          }}
         />
         {/* 4:24:23 in video */}
       </ScrollView>
