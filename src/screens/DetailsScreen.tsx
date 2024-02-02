@@ -159,7 +159,7 @@ const DetailsScreen = ({navigation, route}: any) => {
               imagelink_square: ItemOfIndex.imagelink_square,
               special_ingredients: ItemOfIndex.special_ingredients,
               type: ItemOfIndex.type,
-              price: price,
+              price: price, // 4:42:58 in video
             });
           }}
         />
