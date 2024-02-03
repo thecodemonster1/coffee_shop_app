@@ -52,7 +52,8 @@ const HomeScreen = ({navigation}: any) => {
   // Retrieve CoffeeList and BeanList from the state using 'useStore' hook
   const CoffeeList = useStore((state: any) => state.CoffeeList);
   const BeanList = useStore((state: any) => state.BeanList);
-
+  const addToCart = useStore((state: any) => state.addToCart);
+  const calculateCartPrice = useStore((state: any) => state.calculateCartPrice); // 4:45:30 in video
   // Initialize state variables for categories, search text, category index, and sorted coffee
   const [categories, setCategories] = useState(
     getCategoriesFromData(CoffeeList),
@@ -115,7 +116,7 @@ const HomeScreen = ({navigation}: any) => {
         contentContainerStyle={styles.ScrollViewFlex}>
         {/* App Header */}
         <HeaderBar title={''} />
-
+        
         <Text style={styles.ScreenTitle}>
           Find the Best{'\n'}Coffee For You...
         </Text>

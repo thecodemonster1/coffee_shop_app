@@ -3,7 +3,8 @@ import React from 'react';
 import {useStore} from '../store/store';
 
 const CartScreen = () => {
-  const cartList = useStore((state: any) => state.CartList);
+  const cartList = useStore((state: any) => state.CartList); // initializing the cartList
+  console.log("CartList = ", cartList.length);
   return (
     <View>
       <Text>CartScreen</Text>
