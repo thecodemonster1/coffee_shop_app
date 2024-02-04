@@ -10,6 +10,7 @@ import {
   ToastAndroid,
   TouchableOpacity,
   View,
+  Platform,
 } from 'react-native';
 import {useStore} from '../store/store';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
@@ -24,6 +25,7 @@ import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import CoffeeCard from '../components/CoffeeCard';
+// import {showToast} from 'react-native-toast-notifications';
 
 const getCategoriesFromData = (data: any) => {
   let temp: any = {};
@@ -131,11 +133,35 @@ const HomeScreen = ({navigation}: any) => {
       prices,
     });
     calculateCartPrice();
-    ToastAndroid.showWithGravity(
-      `${name} is Added to Cart`,
-      ToastAndroid.SHORT,
-      ToastAndroid.CENTER,
-    );
+
+    // const addToast = (name) => {
+    //   if (Platform.OS === 'android') {
+    //     ToastAndroid.showWithGravity(
+    //       `${name} is Added to Cart`,
+    //       ToastAndroid.SHORT,
+    //       ToastAndroid.CENTER,
+    //     );
+    //   } else if (Platform.OS === 'ios') {
+    //     // Use a suitable iOS toast library here, e.g., react-native-toasts
+    //     Toast.show(`${name} Added to Cart!`, { duration: 2000, position: Toast.position.CENTER });
+    //   }
+    // };
+
+    // const addToast = (name: any) => {
+    //   showToast(`${name} is Added to Cart`, {
+    //     type: 'success', // or 'warning', 'danger', etc.
+    //     placement: 'bottom', // or 'top'
+    //     duration: 5000, // in milliseconds
+    //     offset: 30, // optional offset from the edge
+    //   });
+    // };
+
+    // // This is just for Android
+    // ToastAndroid.showWithGravity(
+    //   `${name} is Added to Cart`,
+    //   ToastAndroid.SHORT,
+    //   ToastAndroid.CENTER,
+    // );
   };
 
   return (
