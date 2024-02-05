@@ -25,7 +25,10 @@ import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import CoffeeCard from '../components/CoffeeCard';
-// import {showToast} from 'react-native-toast-notifications';
+// import { showToast } from 'react-native-toast-notifications';
+import * as Toast from 'react-native-toast-notifications';
+// import { Snackbar } from 'react-native-snack-bar';
+// import Toast from 'react-native-ios-toast';
 
 const getCategoriesFromData = (data: any) => {
   let temp: any = {};
@@ -134,34 +137,26 @@ const HomeScreen = ({navigation}: any) => {
     });
     calculateCartPrice();
 
-    // const addToast = (name) => {
-    //   if (Platform.OS === 'android') {
-    //     ToastAndroid.showWithGravity(
-    //       `${name} is Added to Cart`,
-    //       ToastAndroid.SHORT,
-    //       ToastAndroid.CENTER,
-    //     );
-    //   } else if (Platform.OS === 'ios') {
-    //     // Use a suitable iOS toast library here, e.g., react-native-toasts
-    //     Toast.show(`${name} Added to Cart!`, { duration: 2000, position: Toast.position.CENTER });
-    //   }
-    // };
+    if (Platform.OS === 'android') {
+      ToastAndroid.showWithGravity(
+        `${name} is Added to Cart`,
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER,
+      );
+    } else if (Platform.OS === 'ios') {
+      // Use a suitable iOS toast library here, e.g., react-native-toasts
+      // Toast.show(`${name} Added to Cart!`, {
+      //   duration: 2000,
+      //   position: Toast.position.CENTER,
+      // });
 
-    // const addToast = (name: any) => {
-    //   showToast(`${name} is Added to Cart`, {
-    //     type: 'success', // or 'warning', 'danger', etc.
-    //     placement: 'bottom', // or 'top'
-    //     duration: 5000, // in milliseconds
-    //     offset: 30, // optional offset from the edge
-    //   });
-    // };
-
-    // // This is just for Android
-    // ToastAndroid.showWithGravity(
-    //   `${name} is Added to Cart`,
-    //   ToastAndroid.SHORT,
-    //   ToastAndroid.CENTER,
-    // );
+      // Toast.show(`${name} Added to Cart!`, {
+      //   type: 'success', // Options: 'success', 'warning', 'danger', 'info'
+      //   placement: 'bottom', // Options: 'top', 'bottom', 'center'
+      //   duration: 5000, // in milliseconds
+      //   offset: 30, // optional offset from the edge
+      // });
+    }
   };
 
   return (
