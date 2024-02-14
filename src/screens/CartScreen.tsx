@@ -12,6 +12,7 @@ const CartScreen = () => {
   );
 };
 
+const styles = StyleSheet.create({});
+
 export default CartScreen;
 
-const styles = StyleSheet.create({});
