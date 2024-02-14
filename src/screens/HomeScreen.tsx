@@ -143,21 +143,20 @@ const HomeScreen = ({navigation}: any) => {
         ToastAndroid.SHORT,
         ToastAndroid.CENTER,
       );
-    } else if (Platform.OS === 'ios') {
-      // Use a suitable iOS toast library here, e.g., react-native-toasts
-      // Toast.show(`${name} Added to Cart!`, {
-      //   duration: 2000,
-      //   position: Toast.position.CENTER,
-      // });
-
-      // Toast.show(`${name} Added to Cart!`, {
-      //   type: 'success', // Options: 'success', 'warning', 'danger', 'info'
-      //   placement: 'bottom', // Options: 'top', 'bottom', 'center'
-      //   duration: 5000, // in milliseconds
-      //   offset: 30, // optional offset from the edge
-      // });
-    }
-  };
+    } // else if (Platform.OS === 'ios') {
+    //   // Use a suitable iOS toast library here, e.g., react-native-toasts
+    //   // Toast.show(`${name} Added to Cart!`, {
+    //   //   duration: 2000,
+    //   //   position: Toast.position.CENTER,
+    //   // });
+    //   Toast.show(`${name} Added to Cart!`, {
+    //     type: 'success', // Options: 'success', 'warning', 'danger', 'info'
+    //     placement: 'bottom', // Options: 'top', 'bottom', 'center'
+    //     duration: 5000, // in milliseconds
+    //     offset: 30, // optional offset from the edge
+    //   });
+    // }
+  }; // 4:50:47 in video
 
   return (
     <View style={styles.ScreenContainer}>
@@ -417,46 +416,4 @@ const styles = StyleSheet.create({
 
 export default HomeScreen;
 
-// Commented Code is Above
-// const HomeScreen = ({navigation}: any) => {
-//   const CoffeeList = useStore((state: any) => state.CoffeeList);
-//   const BeanList = useStore((state: any) => state.BeanList);
-//   const [categories, setCategories] = useState(
-//     getCategoriesFromData(CoffeeList),
-//   );
-//   const [searchText, setSearchText] = useState('');
-//   const [categoryIndex, setCategoryIndex] = useState({
-//     index: 1, // if 0 , it will indicate first category
-//     category: categories[1],
-//   });
-//   const [sortedCoffee, setSortedCoffee] = useState(
-//     getCoffeeList(categoryIndex.category, CoffeeList),
-//   );
 
-//   const ListRef: any = useRef<FlatList>();
-//   const tabBarHeight = useBottomTabBarHeight();
-
-//   const searchCoffee = (search: string) => {
-//     if (search != '') {
-//       ListRef?.current?.scrollToOffset({
-//         animated: true,
-//         offset: 0,
-//       });
-//       setCategoryIndex({index: 0, category: categories[0]});
-//       setSortedCoffee([
-//         ...CoffeeList.filter((item: any) =>
-//           item.name.toLowerCase().includes(search.toLowerCase()),
-//         ),
-//       ]);
-//     }
-//   };
-
-//   const resetSearchCoffee = () => {
-//     ListRef?.current?.scrollToOffset({
-//       animated: true,
-//       offset: 0,
-//     });
-//     setCategoryIndex({index: 0, category: categories[0]});
-//     setSortedCoffee([...CoffeeList]);
-//     setSearchText('');
-//   };
