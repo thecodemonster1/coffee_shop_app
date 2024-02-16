@@ -165,7 +165,7 @@ const HomeScreen = ({navigation}: any) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
         {/* App Header */}
-        <HeaderBar title={''} />
+        <HeaderBar title={'Home'} />
 
         <Text style={styles.ScreenTitle}>
           Find the Best{'\n'}Coffee For You...
@@ -415,5 +415,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
-
-
