@@ -16,7 +16,6 @@ const CartScreen = () => {
   );
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
   const tabBarHeight = useBottomTabBarHeight();
-  // 5:09:58 in video
   console.log('CartList = ', cartList.length);
   // console.log('CartPrice = ', cartPrice);
   return (
@@ -25,15 +24,27 @@ const CartScreen = () => {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.ScrollViewFlex}></ScrollView>
-        <HeaderBar title="Cart" />
+        contentContainerStyle={styles.ScrollViewFlex}>
+        <View style={styles.ScrollViewInnerView}>
+          <HeaderBar title="Cart" />
+        </View>
+      </ScrollView>
     </View>
   );
 };
-
+// 5:12:36 in video
 const styles = StyleSheet.create({
-  ScreenContainer: {},
-  ScrollViewFlex: {flexGrow: 1},
+  ScreenContainer: {
+    flex: 1,
+    backgroundColor: COLORS.primaryBlackHex,
+  },
+  ScrollViewFlex: {
+    flexGrow: 1,
+  },
+  ScrollViewInnerView: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
 });
 
 export default CartScreen;
