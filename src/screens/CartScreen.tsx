@@ -25,8 +25,11 @@ const CartScreen = () => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
-        <View style={styles.ScrollViewInnerView}>
-          <HeaderBar title="Cart" />
+        <View
+          style={[styles.ScrollViewInnerView, {marginBottom: tabBarHeight}]}>
+          <View style={styles.ItemContainer}>
+            <HeaderBar title="Cart" />
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -44,6 +47,10 @@ const styles = StyleSheet.create({
   ScrollViewInnerView: {
     flex: 1,
     justifyContent: 'space-between',
+    // backgroundColor: 'red',
+  },
+  ItemContainer: {
+    flex: 1,
   },
 });
 
