@@ -17,6 +17,7 @@ const CartScreen = () => {
   );
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
   const tabBarHeight = useBottomTabBarHeight();
+  
   console.log('CartList = ', cartList.length);
   // console.log('CartPrice = ', cartPrice);
   return (
