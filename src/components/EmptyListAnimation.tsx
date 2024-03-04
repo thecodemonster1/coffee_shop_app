@@ -9,7 +9,12 @@ interface EmptyListAnimationProps {
 const EmptyListAnimation = () => {
   return (
     <View style={styles.EmptyCartContainer}>
-      <LottieView source={require('../lottie/coffeecup.json')} />
+      <LottieView
+        style={styles.LottieStyle}
+        source={require('../lottie/coffeecup.json')}
+        autoPlay
+        loop
+      />
     </View>
   );
 };
@@ -19,6 +24,9 @@ const styles = StyleSheet.create({
   EmptyCartContainer: {
     flex: 1,
     justifyContent: 'center',
+  },
+  LottieStyle: {
+    height: 300,
   },
 });
 
