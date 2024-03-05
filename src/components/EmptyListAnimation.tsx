@@ -6,7 +6,7 @@ interface EmptyListAnimationProps {
   title: string;
 }
 
-const EmptyListAnimation = () => {
+const EmptyListAnimation: React.FC<EmptyListAnimationProps> = ({title}) => {
   return (
     <View style={styles.EmptyCartContainer}>
       <LottieView
@@ -15,6 +15,7 @@ const EmptyListAnimation = () => {
         autoPlay
         loop
       />
+      <Text style={styles.LottieText}>{title}</Text>
     </View>
   );
 };
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
   LottieStyle: {
     height: 300,
   },
+  LottieText: {},
 });
 
 export default EmptyListAnimation;
