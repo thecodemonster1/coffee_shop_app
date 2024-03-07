@@ -1,4 +1,4 @@
-import {ScrollView, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {useStore} from '../store/store';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
@@ -34,7 +34,11 @@ const CartScreen = () => {
             {cartList.length == 0 ? (
               <EmptyListAnimation title={'Cart is Empty'} />
             ) : (
-              <View style={styles.ListItemContainer}></View>
+              <View style={styles.ListItemContainer}>
+                {cartList.map((data: any) =>(
+                  <TouchableOpacity></TouchableOpacity>
+                ))}
+              </View>
             )}
           </View>
         </View>
