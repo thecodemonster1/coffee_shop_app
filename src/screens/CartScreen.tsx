@@ -1,12 +1,20 @@
-import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import {useStore} from '../store/store';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import {COLORS, SPACING} from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
+import PaymentFooter from '../components/PaymentFooter';
 
-const CartScreen = () => {
+const CartScreen = ({navigation, route}: any) => {
   const cartList = useStore((state: any) => state.CartList); // initializing the cartList
   const cartPrice = useStore((state: any) => state.CartPrice); // getting the total price of items in the cart
   const incrementCartItemQuantity = useStore(
@@ -17,6 +25,10 @@ const CartScreen = () => {
   );
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
   const tabBarHeight = useBottomTabBarHeight();
+
+  const buttonPressHandler = () => {
+    navigation.push('payment');
+  };
 
   console.log('CartList = ', cartList.length);
   // console.log('CartPrice = ', cartPrice);
@@ -35,12 +47,25 @@ const CartScreen = () => {
               <EmptyListAnimation title={'Cart is Empty'} />
             ) : (
               <View style={styles.ListItemContainer}>
-                {cartList.map((data: any) =>(
-                  <TouchableOpacity></TouchableOpacity>
+                {cartList.map((data: any) => (
+                  <TouchableOpacity
+                    onPress={() => {}}
+                    key={data.id}></TouchableOpacity>
                 ))}
               </View>
             )}
           </View>
+          {cartList.length != 0 ? (
+            <PaymentFooter
+              buttonTitle="Pay"
+              price={{price: cartPrice, currency: '$'}}
+              buttonPressHandler={() => {
+                buttonPressHandler();
+              }}
+            />
+          ) : (
+            <></>
+          )}
         </View>
       </ScrollView>
     </View>
