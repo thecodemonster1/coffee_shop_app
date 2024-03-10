@@ -27,7 +27,7 @@ const CartScreen = ({navigation, route}: any) => {
   const tabBarHeight = useBottomTabBarHeight();
 
   const buttonPressHandler = () => {
-    navigation.push('payment');
+    navigation.push('Payment');
   };
 
   console.log('CartList = ', cartList.length);
@@ -59,9 +59,7 @@ const CartScreen = ({navigation, route}: any) => {
             <PaymentFooter
               buttonTitle="Pay"
               price={{price: cartPrice, currency: '$'}}
-              buttonPressHandler={() => {
-                buttonPressHandler();
-              }}
+              buttonPressHandler={buttonPressHandler}
             />
           ) : (
             <></>
