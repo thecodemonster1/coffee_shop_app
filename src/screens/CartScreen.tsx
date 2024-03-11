@@ -13,6 +13,7 @@ import {COLORS, SPACING} from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import PaymentFooter from '../components/PaymentFooter';
+import CartItem from '../components/CartItem';
 
 const CartScreen = ({navigation, route}: any) => {
   const cartList = useStore((state: any) => state.CartList); // initializing the cartList
@@ -48,9 +49,9 @@ const CartScreen = ({navigation, route}: any) => {
             ) : (
               <View style={styles.ListItemContainer}>
                 {cartList.map((data: any) => (
-                  <TouchableOpacity
-                    onPress={() => {}}
-                    key={data.id}></TouchableOpacity>
+                  <TouchableOpacity onPress={() => {}} key={data.id}>
+                    <CartItem />
+                  </TouchableOpacity>
                 ))}
               </View>
             )}
