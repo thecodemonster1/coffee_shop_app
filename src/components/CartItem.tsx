@@ -13,7 +13,17 @@ interface CartItemProps {
   decrementCartItemQuantityHandler: any;
 }
 
-const CartItem = () => {
+const CartItem: React.FC<CartItemProps> = ({
+  id,
+  title,
+  imagelink_square,
+  special_ingridient,
+  roasted,
+  prices,
+  type,
+  incrementCartItemQuantityHandler,
+  decrementCartItemQuantityHandler,
+}) => {
   return (
     <View>
       <Text>CartItem</Text>
