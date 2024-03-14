@@ -50,7 +50,17 @@ const CartScreen = ({navigation, route}: any) => {
               <View style={styles.ListItemContainer}>
                 {cartList.map((data: any) => (
                   <TouchableOpacity onPress={() => {}} key={data.id}>
-                    <CartItem />
+                    <CartItem
+                      id={data.id}
+                      title={data.title}
+                      imagelink_square={data.imagelink_square}
+                      special_ingridient={data.special_ingridient}
+                      roasted={data.roasted}
+                      prices={data.prices}
+                      type={data.type}
+                      incrementCartItemQuantityHandler={() => {}}
+                      decrementCartItemQuantityHandler={() => {}}
+                    />
                   </TouchableOpacity>
                 ))}
               </View>
