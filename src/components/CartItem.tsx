@@ -47,7 +47,10 @@ const CartItem: React.FC<CartItemProps> = ({
 
 const styles = StyleSheet.create({
   CartItemLinearGradient: {},
-  CartItemImage: {},
+  CartItemImage: {
+    height: 130,
+    width: 130,
+  },
 });
 
 export default CartItem;
