@@ -34,10 +34,12 @@ const CartItem: React.FC<CartItemProps> = ({
           end={{x: 1, y: 1}}
           colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
           style={styles.CartItemLinearGradient}>
-            <View>
-              <Image source={imagelink_square} style={styles.CartItemImage}></Image>
-            </View>
-          </LinearGradient>
+          <View style={styles.CartItemRow}>
+            <Image
+              source={imagelink_square}
+              style={styles.CartItemImage}></Image>
+          </View>
+        </LinearGradient>
       ) : (
         <></>
       )}
@@ -52,9 +54,15 @@ const styles = StyleSheet.create({
     padding: SPACING.space_12,
     borderRadius: BORDERRADIUS.radius_25,
   },
+  CartItemRow: {
+    flexDirection: 'row',
+    gap: SPACING.space_12,
+    flex: 1,
+  },
   CartItemImage: {
     height: 130,
     width: 130,
+    borderRadius: BORDERRADIUS.radius_25,
   },
 });
 
