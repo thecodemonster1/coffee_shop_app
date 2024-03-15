@@ -1,7 +1,7 @@
 import {Image, ImageProps, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {COLORS} from '../theme/theme';
+import {BORDERRADIUS, COLORS, SPACING} from '../theme/theme';
 
 interface CartItemProps {
   id: string;
@@ -46,7 +46,12 @@ const CartItem: React.FC<CartItemProps> = ({
 };
 
 const styles = StyleSheet.create({
-  CartItemLinearGradient: {},
+  CartItemLinearGradient: {
+    flex: 1,
+    gap: SPACING.space_12,
+    padding: SPACING.space_12,
+    borderRadius: BORDERRADIUS.radius_25,
+  },
   CartItemImage: {
     height: 130,
     width: 130,
