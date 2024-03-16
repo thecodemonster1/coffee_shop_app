@@ -38,6 +38,7 @@ const CartItem: React.FC<CartItemProps> = ({
             <Image
               source={imagelink_square}
               style={styles.CartItemImage}></Image>
+              <View style={styles.CartItemInfo}></View>
           </View>
         </LinearGradient>
       ) : (
@@ -63,6 +64,11 @@ const styles = StyleSheet.create({
     height: 130,
     width: 130,
     borderRadius: BORDERRADIUS.radius_25,
+  },
+  CartItemInfo: {
+    flex: 1,
+    paddingVertical: SPACING.space_4,
+    justifyContent: 'space-between',
   },
 });
 
