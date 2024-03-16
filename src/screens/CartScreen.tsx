@@ -52,7 +52,7 @@ const CartScreen = ({navigation, route}: any) => {
                   <TouchableOpacity onPress={() => {}} key={data.id}>
                     <CartItem
                       id={data.id}
-                      title={data.title}
+                      name={data.name}
                       imagelink_square={data.imagelink_square}
                       special_ingridient={data.special_ingridient}
                       roasted={data.roasted}

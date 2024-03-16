@@ -5,7 +5,7 @@ import {BORDERRADIUS, COLORS, SPACING} from '../theme/theme';
 
 interface CartItemProps {
   id: string;
-  title: string;
+  name: string;
   imagelink_square: ImageProps;
   special_ingridient: string;
   roasted: string;
@@ -17,7 +17,7 @@ interface CartItemProps {
 
 const CartItem: React.FC<CartItemProps> = ({
   id,
-  title,
+  name,
   imagelink_square,
   special_ingridient,
   roasted,
@@ -38,7 +38,12 @@ const CartItem: React.FC<CartItemProps> = ({
             <Image
               source={imagelink_square}
               style={styles.CartItemImage}></Image>
-              <View style={styles.CartItemInfo}></View>
+              <View style={styles.CartItemInfo}>
+                <View>
+                  <Text>{name}</Text>
+                  <Text>{name}</Text>
+                </View>
+              </View>
           </View>
         </LinearGradient>
       ) : (
