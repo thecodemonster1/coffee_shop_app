@@ -49,6 +49,9 @@ const CartItem: React.FC<CartItemProps> = ({
                 <Text style={styles.CartItemTitle}>{name}</Text>
                 <Text style={styles.CartItemSubTitle}>{special_ingridient}</Text>
               </View>
+              <View style={styles.CartItemRoastedContainer}>
+                <Text style={styles.CartItemRoastedText}>{roasted}</Text>
+              </View>
             </View>
           </View>
         </LinearGradient>
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
   CartItemImage: {
     height: 130,
     width: 130,
-    borderRadius: BORDERRADIUS.radius_25,
+    borderRadius: BORDERRADIUS.radius_20,
   },
   CartItemInfo: {
     flex: 1,
@@ -91,6 +94,8 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_12,
     color: COLORS.primaryLightGreyHex,
   },
+  CartItemRoastedContainer: {},
+  CartItemRoastedText: {},
 });
 
 export default CartItem;
