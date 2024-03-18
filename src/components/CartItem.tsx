@@ -47,7 +47,9 @@ const CartItem: React.FC<CartItemProps> = ({
             <View style={styles.CartItemInfo}>
               <View>
                 <Text style={styles.CartItemTitle}>{name}</Text>
-                <Text style={styles.CartItemSubTitle}>{special_ingridient}</Text>
+                <Text style={styles.CartItemSubTitle}>
+                  {special_ingridient}
+                </Text>
               </View>
               <View style={styles.CartItemRoastedContainer}>
                 <Text style={styles.CartItemRoastedText}>{roasted}</Text>
@@ -94,8 +96,19 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_12,
     color: COLORS.primaryLightGreyHex,
   },
-  CartItemRoastedContainer: {},
-  CartItemRoastedText: {},
+  CartItemRoastedContainer: {
+    height: 50,
+    width: 50*2+SPACING.space_20,
+    borderRadius: BORDERRADIUS.radius_15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.primaryDarkGreyHex,
+  },
+  CartItemRoastedText: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_10,
+    color: COLORS.primaryWhiteHex,
+  },
 });
 
 export default CartItem;
