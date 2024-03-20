@@ -56,6 +56,11 @@ const CartItem: React.FC<CartItemProps> = ({
               </View>
             </View>
           </View>
+          {prices.map((data: any, index: any) => (
+            <View
+              key={index.toString()}
+              style={styles.CartItemSizeRowContainer}></View>
+          ))}
         </LinearGradient>
       ) : (
         <></>
@@ -98,7 +103,7 @@ const styles = StyleSheet.create({
   },
   CartItemRoastedContainer: {
     height: 50,
-    width: 50*2+SPACING.space_20,
+    width: 50 * 2 + SPACING.space_20,
     borderRadius: BORDERRADIUS.radius_15,
     justifyContent: 'center',
     alignItems: 'center',
@@ -109,6 +114,7 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_10,
     color: COLORS.primaryWhiteHex,
   },
+  CartItemSizeRowContainer: {},
 });
 
 export default CartItem;
