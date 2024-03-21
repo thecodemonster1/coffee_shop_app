@@ -62,6 +62,7 @@ const CartItem: React.FC<CartItemProps> = ({
               style={styles.CartItemSizeRowContainer}>
               <View style={styles.CartItemSizeValueContainer}>
                 <View style={styles.SizeBox}></View>
+                {/* 5:47 in video */}
               </View>
             </View>
           ))}
