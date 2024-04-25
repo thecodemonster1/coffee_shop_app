@@ -62,7 +62,16 @@ const CartItem: React.FC<CartItemProps> = ({
               style={styles.CartItemSizeRowContainer}>
               <View style={styles.CartItemSizeValueContainer}>
                 <View style={styles.SizeBox}>
-                  <Text style={styles.SizeText}>{data.size}</Text>
+                  <Text
+                    style={[
+                      styles.SizeText,
+                      {
+                        fontSize:
+                          type == 'Bean' ? FONTSIZE.size_12 : FONTSIZE.size_16,
+                      },
+                    ]}>
+                    {data.size}
+                  </Text>
                 </View>
                 {/* 5:47 in video */}
               </View>
@@ -124,6 +133,7 @@ const styles = StyleSheet.create({
   CartItemSizeRowContainer: {},
   CartItemSizeValueContainer: {},
   SizeBox: {},
+  SizeText: {},
 });
 
 export default CartItem;
