@@ -13,7 +13,7 @@ interface CartItemProps {
   id: string;
   name: string;
   imagelink_square: ImageProps;
-  special_ingridient: string;
+  special_ingredient: string;
   roasted: string;
   prices: any;
   type: string;
@@ -25,7 +25,7 @@ const CartItem: React.FC<CartItemProps> = ({
   id,
   name,
   imagelink_square,
-  special_ingridient,
+  special_ingredient,
   roasted,
   prices,
   type,
@@ -47,8 +47,8 @@ const CartItem: React.FC<CartItemProps> = ({
             <View style={styles.CartItemInfo}>
               <View>
                 <Text style={styles.CartItemTitle}>{name}</Text>
-                <Text style={styles.CartItemSubTitle}>
-                  {special_ingridient}
+                <Text style={styles.CartItemSubtitle}>
+                  {special_ingredient}
                 </Text>
               </View>
               <View style={styles.CartItemRoastedContainer}>
@@ -112,7 +112,10 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_18,
     color: COLORS.primaryWhiteHex,
   },
-  CartItemSubTitle: {
+  CartItemSubtitle: {
+    // fontFamily: FONTFAMILY.poppins_medium,
+    // fontSize: FONTSIZE.size_18,
+    // color: COLORS.primaryWhiteHex,
     fontFamily: FONTFAMILY.poppins_regular,
     fontSize: FONTSIZE.size_12,
     color: COLORS.primaryLightGreyHex,
@@ -137,7 +140,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
-  CartItemSizeValueContainer: {},
+  CartItemSizeValueContainer: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   SizeBox: {},
   SizeText: {},
 });

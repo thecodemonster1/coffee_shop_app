@@ -52,7 +52,7 @@ const DetailsScreen = ({navigation, route}: any) => {
     name,
     roasted,
     imagelink_square,
-    special_ingridient,
+    special_ingredient,
     type,
     price
   }: any) => {
@@ -62,7 +62,7 @@ const DetailsScreen = ({navigation, route}: any) => {
       name,
       roasted,
       imagelink_square,
-      special_ingridient,
+      special_ingredient,
       type,
       prices: [{...price, quantity: 1}],
     })
@@ -157,7 +157,7 @@ const DetailsScreen = ({navigation, route}: any) => {
               name: ItemOfIndex.name,
               roasted: ItemOfIndex.roasted,
               imagelink_square: ItemOfIndex.imagelink_square,
-              special_ingredients: ItemOfIndex.special_ingredients,
+              special_ingredient: ItemOfIndex.special_ingredient,
               type: ItemOfIndex.type,
               price: price, // 4:42:58 in video
             });

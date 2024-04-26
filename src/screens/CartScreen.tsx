@@ -54,7 +54,7 @@ const CartScreen = ({navigation, route}: any) => {
                       id={data.id}
                       name={data.name}
                       imagelink_square={data.imagelink_square}
-                      special_ingridient={data.special_ingridient}
+                      special_ingredient={data.special_ingredient}
                       roasted={data.roasted}
                       prices={data.prices}
                       type={data.type}

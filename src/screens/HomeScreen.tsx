@@ -121,7 +121,7 @@ const HomeScreen = ({navigation}: any) => {
     name,
     roasted,
     imagelink_square,
-    special_ingridient,
+    special_ingredient,
     type,
     prices,
   }: any) => {
@@ -131,7 +131,7 @@ const HomeScreen = ({navigation}: any) => {
       name,
       roasted,
       imagelink_square,
-      special_ingridient,
+      special_ingredient,
       type,
       prices,
     });
