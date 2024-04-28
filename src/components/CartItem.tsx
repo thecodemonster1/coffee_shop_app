@@ -1,4 +1,11 @@
-import {Image, ImageProps, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  ImageProps,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {
@@ -8,6 +15,7 @@ import {
   FONTSIZE,
   SPACING,
 } from '../theme/theme';
+import CustomIcon from './CustomIcon';
 
 interface CartItemProps {
   id: string;
@@ -73,10 +81,29 @@ const CartItem: React.FC<CartItemProps> = ({
                     {data.size}
                   </Text>
                 </View>
-                <Text style={styles.SizeText}>
+                <Text style={styles.SizeCurrency}>
                   {data.currency}
-                  <Text>{data.price}</Text>
+                  <Text style={styles.SizePrice}>{data.price}</Text>
                 </Text>
+              </View>
+              <View style={styles.CartItemSizeValueContainer}>
+                <TouchableOpacity>
+                  <CustomIcon
+                    style={styles.CartItemIcon}
+                    name="minus"
+                    size={FONTSIZE.size_10}
+                    color={COLORS.primaryWhiteHex}></CustomIcon>
+                </TouchableOpacity>
+                <View style={styles.CartItemQuantityContainer}>
+                  <Text style={styles.CartItemQuantityText}>{data.quantity}</Text>
+                </View>
+                <TouchableOpacity>
+                  <CustomIcon
+                    style={styles.CartItemIcon}
+                    name="add"
+                    size={FONTSIZE.size_10}
+                    color={COLORS.primaryWhiteHex}></CustomIcon>
+                </TouchableOpacity>
               </View>
             </View>
           ))}
@@ -160,6 +187,34 @@ const styles = StyleSheet.create({
   SizeText: {
     fontFamily: FONTFAMILY.poppins_medium,
     color: COLORS.secondaryLightGreyHex,
+  },
+  SizeCurrency: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_18,
+    color: COLORS.primaryOrangeHex,
+  },
+  SizePrice: {
+    color: COLORS.primaryWhiteHex,
+  },
+  CartItemIcon: {
+    backgroundColor: COLORS.primaryOrangeHex,
+    // color: COLORS.primaryOrangeHex,
+    padding: SPACING.space_10,
+    borderRadius: BORDERRADIUS.radius_10,
+  },
+  CartItemQuantityContainer: {
+    backgroundColor: COLORS.primaryBlackHex,
+    width: 80,
+    borderRadius: BORDERRADIUS.radius_10,
+    borderWidth: 2,
+    borderColor:  COLORS.primaryOrangeHex,
+    alignItems: 'center',
+    paddingVertical: SPACING.space_4,
+  },
+  CartItemQuantityText: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_16,
+    color: COLORS.primaryWhiteHex,
   },
 });
 
