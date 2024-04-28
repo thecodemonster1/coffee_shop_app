@@ -146,8 +146,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  SizeBox: {},
-  SizeText: {},
+  SizeBox: {
+    backgroundColor: COLORS.primaryBlackHex,
+    height: 40,
+    width: 100,
+    borderRadius: BORDERRADIUS.radius_10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  SizeText: {
+    fontFamily: FONTFAMILY.poppins_medium,
+    color: COLORS.secondaryLightGreyHex,
+  },
 });
 
 export default CartItem;
