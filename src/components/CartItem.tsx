@@ -73,7 +73,10 @@ const CartItem: React.FC<CartItemProps> = ({
                     {data.size}
                   </Text>
                 </View>
-                {/* 5:47 in video */}
+                <Text style={styles.SizeText}>
+                  {data.currency}
+                  <Text>{data.price}</Text>
+                </Text>
               </View>
             </View>
           ))}
