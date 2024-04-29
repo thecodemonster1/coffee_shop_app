@@ -119,8 +119,10 @@ const CartItem: React.FC<CartItemProps> = ({
           colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
           style={styles.CartItemSingleLinearGradient}>
             <View>
-              <Image source={imagelink_square}/>
+              <Image source={imagelink_square} style={styles.CartItemSingleImage}/>
             </View>
+            <View></View>
+            {/* 6:03:35 in video */}
           </LinearGradient>
       )}
     </View>
@@ -234,6 +236,11 @@ const styles = StyleSheet.create({
     padding: SPACING.space_12,
     gap: SPACING.space_12,
     borderRadius: BORDERRADIUS.radius_25,
+  },
+  CartItemSingleImage: {
+    height: 150,
+    width: 150,
+    borderRadius: BORDERRADIUS.radius_20,
   },
 });
 
