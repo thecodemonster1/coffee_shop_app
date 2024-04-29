@@ -87,19 +87,23 @@ const CartItem: React.FC<CartItemProps> = ({
                 </Text>
               </View>
               <View style={styles.CartItemSizeValueContainer}>
-                <TouchableOpacity>
+                <TouchableOpacity style={styles.CartItemIcon} onPress={() => {
+                  decrementCartItemQuantityHandler(id, data.size);
+                }}>
                   <CustomIcon
-                    style={styles.CartItemIcon}
                     name="minus"
                     size={FONTSIZE.size_10}
                     color={COLORS.primaryWhiteHex}></CustomIcon>
                 </TouchableOpacity>
                 <View style={styles.CartItemQuantityContainer}>
-                  <Text style={styles.CartItemQuantityText}>{data.quantity}</Text>
+                  <Text style={styles.CartItemQuantityText}>
+                    {data.quantity}
+                  </Text>
                 </View>
-                <TouchableOpacity>
+                <TouchableOpacity style={styles.CartItemIcon} onPress={() => {
+                  incrementCartItemQuantityHandler(id, data.size);
+                }}>
                   <CustomIcon
-                    style={styles.CartItemIcon}
                     name="add"
                     size={FONTSIZE.size_10}
                     color={COLORS.primaryWhiteHex}></CustomIcon>
@@ -207,7 +211,7 @@ const styles = StyleSheet.create({
     width: 80,
     borderRadius: BORDERRADIUS.radius_10,
     borderWidth: 2,
-    borderColor:  COLORS.primaryOrangeHex,
+    borderColor: COLORS.primaryOrangeHex,
     alignItems: 'center',
     paddingVertical: SPACING.space_4,
   },
