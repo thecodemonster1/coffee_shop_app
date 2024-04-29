@@ -113,7 +113,15 @@ const CartItem: React.FC<CartItemProps> = ({
           ))}
         </LinearGradient>
       ) : (
-        <></>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 1}}
+          colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
+          style={styles.CartItemSingleLinearGradient}>
+            <View>
+              <Image source={imagelink_square}/>
+            </View>
+          </LinearGradient>
       )}
     </View>
   );
@@ -219,6 +227,13 @@ const styles = StyleSheet.create({
     fontFamily: FONTFAMILY.poppins_semibold,
     fontSize: FONTSIZE.size_16,
     color: COLORS.primaryWhiteHex,
+  },
+  CartItemSingleLinearGradient: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: SPACING.space_12,
+    gap: SPACING.space_12,
+    borderRadius: BORDERRADIUS.radius_25,
   },
 });
 
