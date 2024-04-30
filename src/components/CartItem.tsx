@@ -33,7 +33,7 @@ const CartItem: React.FC<CartItemProps> = ({
   id,
   name,
   imagelink_square,
-  special_ingredient,
+  special_ingredient, // can be assign a value for this here also (not a proper way)
   roasted,
   prices,
   type,
@@ -121,7 +121,12 @@ const CartItem: React.FC<CartItemProps> = ({
             <View>
               <Image source={imagelink_square} style={styles.CartItemSingleImage}/>
             </View>
-            <View></View>
+            <View style={styles.CartItemSingleInfoContainer}>
+              <View>
+                <Text style={styles.CartItemTitle}>{name}</Text>
+                <Text style={styles.CartItemSubtitle}>{special_ingredient}</Text>
+              </View>
+            </View>
             {/* 6:03:35 in video */}
           </LinearGradient>
       )}
@@ -242,6 +247,7 @@ const styles = StyleSheet.create({
     width: 150,
     borderRadius: BORDERRADIUS.radius_20,
   },
+  CartItemSingleInfoContainer: {},
 });
 
 export default CartItem;
