@@ -53,7 +53,7 @@ const FavoritesItemCard: React.FC<FavoritesItemCardProps> = ({
         average_rating={average_rating}
         ratings_count={ratings_count}
         roasted={roasted}
-        ToggleFavourite={ToggleFavouriteItem}
+        ToggleFavorite={ToggleFavouriteItem}
       />
       <LinearGradient
         start={{x: 0, y: 0}}
