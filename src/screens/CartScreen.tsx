@@ -16,8 +16,8 @@ import PaymentFooter from '../components/PaymentFooter';
 import CartItem from '../components/CartItem';
 
 const CartScreen = ({navigation, route}: any) => {
-  const cartList = useStore((state: any) => state.CartList); // initializing the cartList
-  const cartPrice = useStore((state: any) => state.CartPrice); // getting the total price of items in the cart
+  const CartList = useStore((state: any) => state.CartList); // initializing the CartList
+  const CartPrice = useStore((state: any) => state.CartPrice); // getting the total price of items in the cart
   const incrementCartItemQuantity = useStore(
     (state: any) => state.incrementCartItemQuantity,
   );
@@ -31,8 +31,8 @@ const CartScreen = ({navigation, route}: any) => {
     navigation.push('Payment');
   };
 
-  console.log('CartList = ', cartList.length);
-  // console.log('CartPrice = ', cartPrice);
+  console.log('CartList Len = ', CartList.length);
+  // console.log('CartPrice = ', CartPrice);
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -44,11 +44,11 @@ const CartScreen = ({navigation, route}: any) => {
           style={[styles.ScrollViewInnerView, {marginBottom: tabBarHeight}]}>
           <View style={styles.ItemContainer}>
             <HeaderBar title="Cart" />
-            {cartList.length == 0 ? (
+            {CartList.length == 0 ? (
               <EmptyListAnimation title={'Cart is Empty'} />
             ) : (
               <View style={styles.ListItemContainer}>
-                {cartList.map((data: any) => (
+                {CartList.map((data: any) => (
                   <TouchableOpacity onPress={() => {}} key={data.id}>
                     <CartItem
                       id={data.id}
@@ -66,10 +66,10 @@ const CartScreen = ({navigation, route}: any) => {
               </View>
             )}
           </View>
-          {cartList.length != 0 ? (
+          {CartList.length != 0 ? (
             <PaymentFooter
               buttonTitle="Pay"
-              price={{price: cartPrice, currency: '$'}}
+              price={{price: CartPrice, currency: '$'}}
               buttonPressHandler={buttonPressHandler}
             />
           ) : (
@@ -80,7 +80,7 @@ const CartScreen = ({navigation, route}: any) => {
     </View>
   );
 };
-// 5:12:36 in video
+
 const styles = StyleSheet.create({
   ScreenContainer: {
     flex: 1,
