@@ -151,6 +151,33 @@ const CartItem: React.FC<CartItemProps> = ({
                 <Text style={styles.SizePrice}>{prices[0].price}</Text>
               </Text>
             </View>
+            <View style={styles.CartItemSizeValueContainer}>
+                <TouchableOpacity
+                  style={styles.CartItemIcon}
+                  onPress={() => {
+                    decrementCartItemQuantityHandler(id, prices[0].size);
+                  }}>
+                  <CustomIcon
+                    name="minus"
+                    size={FONTSIZE.size_10}
+                    color={COLORS.primaryWhiteHex}></CustomIcon>
+                </TouchableOpacity>
+                <View style={styles.CartItemQuantityContainer}>
+                  <Text style={styles.CartItemQuantityText}>
+                    {prices[0].quantity}
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  style={styles.CartItemIcon}
+                  onPress={() => {
+                    incrementCartItemQuantityHandler(id, prices[0].size);
+                  }}>
+                  <CustomIcon
+                    name="add"
+                    size={FONTSIZE.size_10}
+                    color={COLORS.primaryWhiteHex}></CustomIcon>
+                </TouchableOpacity>
+              </View>
           </View>
           {/* 6:03:35 in video */}
         </LinearGradient>
@@ -281,6 +308,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly',
+  },
+  CartItemSingleQuantityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+
   },
 });
 
