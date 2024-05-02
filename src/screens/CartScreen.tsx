@@ -18,7 +18,7 @@ import CartItem from '../components/CartItem';
 const CartScreen = ({navigation, route}: any) => {
   const CartList = useStore((state: any) => state.CartList); // initializing the CartList
   const CartPrice = useStore((state: any) => state.CartPrice); // getting the total price of items in the cart
-  
+
   const incrementCartItemQuantity = useStore(
     (state: any) => state.incrementCartItemQuantity,
   );
@@ -32,14 +32,14 @@ const CartScreen = ({navigation, route}: any) => {
     navigation.push('Payment');
   };
 
-  const incrementCartItemQuantityHandler = (id:string, size:string) => {
+  const incrementCartItemQuantityHandler = (id: string, size: string) => {
     incrementCartItemQuantity(id, size);
     calculateCartPrice();
-  }
-  const decrementCartItemQuantityHandler = (id:string, size:string) => {
+  };
+  const decrementCartItemQuantityHandler = (id: string, size: string) => {
     decrementCartItemQuantity(id, size);
     calculateCartPrice();
-  }
+  };
   console.log('CartList Len = ', CartList.length);
   // console.log('CartPrice = ', CartPrice);
   return (
@@ -58,18 +58,30 @@ const CartScreen = ({navigation, route}: any) => {
             ) : (
               <View style={styles.ListItemContainer}>
                 {CartList.map((data: any) => (
-                  <TouchableOpacity onPress={() => {}} key={data.id}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.push('Details', {
+                        index: data.index,
+                        id: data.id,
+                        type: data.type,
+                      });
+                    }}
+                    key={data.id}>
                     <CartItem
                       id={data.id}
                       name={data.name}
                       imagelink_square={data.imagelink_square}
                       // special_ingredient={data.special_ingredient} // correct one
-                      special_ingredient={"Special Ingredient"} // testing purpose
+                      special_ingredient={'Special Ingredient'} // testing purpose
                       roasted={data.roasted}
                       prices={data.prices}
                       type={data.type}
-                      incrementCartItemQuantityHandler={incrementCartItemQuantityHandler}
-                      decrementCartItemQuantityHandler={decrementCartItemQuantityHandler}
+                      incrementCartItemQuantityHandler={
+                        incrementCartItemQuantityHandler
+                      }
+                      decrementCartItemQuantityHandler={
+                        decrementCartItemQuantityHandler
+                      }
                     />
                   </TouchableOpacity>
                 ))}
