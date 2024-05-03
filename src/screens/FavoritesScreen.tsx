@@ -14,6 +14,7 @@ import CartItem from '../components/CartItem';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import HeaderBar from '../components/HeaderBar';
 import PaymentFooter from '../components/PaymentFooter';
+import FavoritesItemCard from '../components/FavoritesItemCard';
 
 const FavoritesScreen = ({navigation}: any) => {
   const FavoritesList = useStore((state: any) => state.FavoritesList);
@@ -40,7 +41,7 @@ const FavoritesScreen = ({navigation}: any) => {
               <EmptyListAnimation title={'No Favorite'} />
             ) : (
               <View style={styles.ListItemContainer}>
-                {FavoritesList .map((data: any) => (
+                {FavoritesList.map((data: any) => (
                   <TouchableOpacity
                     onPress={() => {
                       navigation.push('Details', {
@@ -49,7 +50,22 @@ const FavoritesScreen = ({navigation}: any) => {
                         type: data.type,
                       });
                     }}
-                    key={data.id}></TouchableOpacity>
+                    key={data.id}>
+                    <FavoritesItemCard
+                      id={data.id}
+                      name={data.name}
+                      type={data.type}
+                      imagelink_portrait={data.imagelink_portrait}
+                      favourite={data.favourite}
+                      special_ingredient={data.special_ingredient}
+                      ingredients={data.ingredients}
+                      average_rating={data.average_rating}
+                      ratings_count={data.ratings_count}
+                      roasted={data.roasted}
+                      ToggleFavouriteItem={ToggleFavorite}
+                      description={''}
+                    />
+                  </TouchableOpacity>
                 ))}
               </View>
             )}

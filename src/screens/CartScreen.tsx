@@ -40,7 +40,9 @@ const CartScreen = ({navigation, route}: any) => {
     decrementCartItemQuantity(id, size);
     calculateCartPrice();
   };
-  console.log('CartList Len = ', CartList.length);
+  const output = () => {
+    // console.log('CartList Len = ', CartList.length);
+  };
   // console.log('CartPrice = ', CartPrice);
   return (
     <View style={styles.ScreenContainer}>
@@ -64,7 +66,9 @@ const CartScreen = ({navigation, route}: any) => {
                         index: data.index,
                         id: data.id,
                         type: data.type,
+
                       });
+                      output;
                     }}
                     key={data.id}>
                     <CartItem
@@ -82,7 +86,8 @@ const CartScreen = ({navigation, route}: any) => {
                       decrementCartItemQuantityHandler={
                         decrementCartItemQuantityHandler
                       }
-                    />
+                      />
+                      
                   </TouchableOpacity>
                 ))}
               </View>
