@@ -64,6 +64,7 @@ const FavoritesItemCard: React.FC<FavoritesItemCardProps> = ({
         <Text style={styles.DescriptionText}>{description}</Text>
       </LinearGradient>
     </View>
+    // 6:29 in video
   );
 };
 

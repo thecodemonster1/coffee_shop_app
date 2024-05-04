@@ -17,10 +17,9 @@ const App = () => {
     // <SafeAreaView>
       <NavigationContainer>
         {/* This safeAreaView for iOS  */}
-        <SafeAreaView>
+        <SafeAreaView />
           {/* <View style={{ flex: 1,}}>
           </View> */}
-        </SafeAreaView>
         {/* When you don't want the header bar make headerShown to false 👇*/}
         <Stack.Navigator screenOptions={{headerShown: false, headerTitle: ''}}> 
           <Stack.Screen 

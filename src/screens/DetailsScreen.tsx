@@ -147,6 +147,8 @@ const DetailsScreen = ({navigation, route}: any) => {
             ))}
           </View>
         </View>
+        {/* 4:24:23 in video */}
+      </ScrollView>
         <PaymentFooter
           price={price}
           buttonTitle="Add to Cart"
@@ -163,8 +165,6 @@ const DetailsScreen = ({navigation, route}: any) => {
             });
           }}
         />
-        {/* 4:24:23 in video */}
-      </ScrollView>
     </View>
   );
 };

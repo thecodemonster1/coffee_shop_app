@@ -26,7 +26,6 @@ import CustomIcon from '../components/CustomIcon';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import CoffeeCard from '../components/CoffeeCard';
 // import { showToast } from 'react-native-toast-notifications';
-import * as Toast from 'react-native-toast-notifications';
 // import { Snackbar } from 'react-native-snack-bar';
 // import Toast from 'react-native-ios-toast';
 
@@ -143,19 +142,7 @@ const HomeScreen = ({navigation}: any) => {
         ToastAndroid.SHORT,
         ToastAndroid.CENTER,
       );
-    } // else if (Platform.OS === 'ios') {
-    //   // Use a suitable iOS toast library here, e.g., react-native-toasts
-    //   // Toast.show(`${name} Added to Cart!`, {
-    //   //   duration: 2000,
-    //   //   position: Toast.position.CENTER,
-    //   // });
-    //   Toast.show(`${name} Added to Cart!`, {
-    //     type: 'success', // Options: 'success', 'warning', 'danger', 'info'
-    //     placement: 'bottom', // Options: 'top', 'bottom', 'center'
-    //     duration: 5000, // in milliseconds
-    //     offset: 30, // optional offset from the edge
-    //   });
-    // }
+    }
   }; // 4:50:47 in video
 
   return (
