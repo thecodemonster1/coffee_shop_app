@@ -30,7 +30,7 @@ interface ImageBackgroundInfoProps {
   ratings_count: string;
   roasted: string;
   BackHandler?: any;
-  ToggleFavorite: any;
+  ToggleFavourite: any;
 }
 
 const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
@@ -46,7 +46,7 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
   ratings_count,
   roasted,
   BackHandler,
-  ToggleFavorite,
+  ToggleFavourite,
 }) => {
   return (
     <View>
@@ -64,7 +64,7 @@ const ImageBackgroundInfo: React.FC<ImageBackgroundInfoProps> = ({
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                ToggleFavorite(favourite, type, id);
+                ToggleFavourite(favourite, type, id);
               }}>
               {/* 3:44:37 in video */}
               <GradientBGIcon
