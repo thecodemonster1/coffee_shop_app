@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 
 const paymentList = [
   {
@@ -25,6 +25,7 @@ const paymentList = [
 ]
 
 const PaymentScreen = () => {
+  const [paymentMode, setPaymentMode] = useState('Credit Card');
   return (
     <View>
       <Text>PaymentScreen</Text>
