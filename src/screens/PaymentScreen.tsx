@@ -1,4 +1,11 @@
-import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import {COLORS, FONTSIZE} from '../theme/theme';
 import GradientBGIcon from '../components/GradientBGIcon';
@@ -35,9 +42,15 @@ const PaymentScreen = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
         <View style={styles.HeaderContainer}>
-          <TouchableOpacity >
-            <GradientBGIcon name='left' color={COLORS.primaryBlackHex} size={FONTSIZE.size_16} />
+          <TouchableOpacity>
+            <GradientBGIcon
+              name="left"
+              color={COLORS.primaryBlackHex}
+              size={FONTSIZE.size_16}
+            />
           </TouchableOpacity>
+          <Text style={styles.HeaderText}>Payments</Text>
+          <View style={styles.EmptyView}></View>
         </View>
       </ScrollView>
     </View>
@@ -53,4 +66,6 @@ const styles = StyleSheet.create({
   },
   ScrollViewFlex: {},
   HeaderContainer: {},
+  HeaderText: {},
+  EmptyView: {},
 });
