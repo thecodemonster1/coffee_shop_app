@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {COLORS, FONTSIZE} from '../theme/theme';
+import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import GradientBGIcon from '../components/GradientBGIcon';
 
 const paymentList = [
@@ -64,8 +64,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.primaryBlackHex,
   },
-  ScrollViewFlex: {},
-  HeaderContainer: {},
-  HeaderText: {},
-  EmptyView: {},
+  ScrollViewFlex: {
+    flexGrow: 1,
+  },
+  HeaderContainer: {
+    paddingHorizontal: SPACING.space_24,
+    paddingVertical: SPACING.space_15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  HeaderText: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_20,
+    color: COLORS.primaryWhiteHex,
+  },
+  EmptyView: {
+    height: SPACING.space_36,
+    width: SPACING.space_36,
+  },
 });
