@@ -9,6 +9,7 @@ import {
 import React, {useState} from 'react';
 import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import GradientBGIcon from '../components/GradientBGIcon';
+import PaymentMethod from '../components/PaymentMethod';
 
 const paymentList = [
   {
@@ -45,12 +46,24 @@ const PaymentScreen = () => {
           <TouchableOpacity>
             <GradientBGIcon
               name="left"
-              color={COLORS.primaryBlackHex}
+              color={COLORS.primaryLightGreyHex}
               size={FONTSIZE.size_16}
             />
           </TouchableOpacity>
           <Text style={styles.HeaderText}>Payments</Text>
-          <View style={styles.EmptyView}></View>
+          <View style={styles.EmptyView} />
+        </View>
+        <View style={styles.PaymentsOptionsContainer}>
+          {paymentList.map((data: any) => (
+            <TouchableOpacity key={data.name}>
+              <PaymentMethod
+                paymentMode={paymentMode}
+                name={data.name}
+                icon={data.icon}
+                isIcon={data.isIcon}
+              />
+            </TouchableOpacity>
+          ))}
         </View>
       </ScrollView>
     </View>
@@ -82,5 +95,9 @@ const styles = StyleSheet.create({
   EmptyView: {
     height: SPACING.space_36,
     width: SPACING.space_36,
+  },
+  PaymentsOptionsContainer: {
+    padding: SPACING.space_15,
+    gap: SPACING.space_15,
   },
 });
