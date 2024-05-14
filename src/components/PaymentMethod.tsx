@@ -1,7 +1,7 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {COLORS, FONTSIZE} from '../theme/theme';
+import {BORDERRADIUS, COLORS, FONTSIZE} from '../theme/theme';
 import CustomIcon from './CustomIcon';
 
 interface PaymentMethodProps {
@@ -45,11 +45,8 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
           end={{x: 1, y: 1}}
           colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
           style={styles.LinearGradientRegular}>
-          
-            <Image source={icon} style={styles.PaymentImage}/>
-            <Text style={styles.PaymentTitle}>{name}</Text>
-          
-          
+          <Image source={icon} style={styles.PaymentImage} />
+          <Text style={styles.PaymentTitle}>{name}</Text>
         </LinearGradient>
       )}
     </View>
@@ -57,7 +54,9 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
 };
 
 const styles = StyleSheet.create({
-  PaymentCardContainer: {},
+  PaymentCardContainer: {
+    borderRadius: BORDERRADIUS.radius_15,
+  },
   LinearGradientWallet: {},
   WalletRow: {},
   PaymentTitle: {},
