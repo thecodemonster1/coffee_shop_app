@@ -82,9 +82,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: SPACING.space_24,
   },
+  LinearGradientRegular: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: SPACING.space_12,
+    paddingHorizontal: SPACING.space_24,
+    gap: SPACING.space_24,
+    borderRadius: BORDERRADIUS.radius_15 * 2,
+  },
   PaymentTitle: {},
   PaymentPrice: {},
-  LinearGradientRegular: {},
   PaymentImage: {},
 });
 
