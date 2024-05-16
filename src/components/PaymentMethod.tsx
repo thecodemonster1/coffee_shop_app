@@ -1,7 +1,7 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {BORDERRADIUS, COLORS, FONTSIZE} from '../theme/theme';
+import {BORDERRADIUS, COLORS, FONTSIZE, SPACING} from '../theme/theme';
 import CustomIcon from './CustomIcon';
 
 interface PaymentMethodProps {
@@ -68,7 +68,15 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primaryGreyHex,
     borderWidth: 3,
   },
-  LinearGradientWallet: {},
+  LinearGradientWallet: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: SPACING.space_12,
+    paddingHorizontal: SPACING.space_24,
+    gap: SPACING.space_24,
+    borderRadius: BORDERRADIUS.radius_15 * 2,
+  },
   WalletRow: {},
   PaymentTitle: {},
   PaymentPrice: {},
