@@ -77,7 +77,11 @@ const styles = StyleSheet.create({
     gap: SPACING.space_24,
     borderRadius: BORDERRADIUS.radius_15 * 2,
   },
-  WalletRow: {},
+  WalletRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SPACING.space_24,
+  },
   PaymentTitle: {},
   PaymentPrice: {},
   LinearGradientRegular: {},
