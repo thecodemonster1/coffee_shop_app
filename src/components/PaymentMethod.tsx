@@ -1,7 +1,13 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {BORDERRADIUS, COLORS, FONTSIZE, SPACING} from '../theme/theme';
+import {
+  BORDERRADIUS,
+  COLORS,
+  FONTFAMILY,
+  FONTSIZE,
+  SPACING,
+} from '../theme/theme';
 import CustomIcon from './CustomIcon';
 
 interface PaymentMethodProps {
@@ -90,7 +96,11 @@ const styles = StyleSheet.create({
     gap: SPACING.space_24,
     borderRadius: BORDERRADIUS.radius_15 * 2,
   },
-  PaymentTitle: {},
+  PaymentTitle: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_16,
+    color: COLORS.primaryWhiteHex,
+  },
   PaymentPrice: {},
   PaymentImage: {},
 });
