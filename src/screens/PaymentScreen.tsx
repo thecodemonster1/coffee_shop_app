@@ -10,6 +10,7 @@ import React, {useState} from 'react';
 import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import GradientBGIcon from '../components/GradientBGIcon';
 import PaymentMethod from '../components/PaymentMethod';
+import PaymentFooter from '../components/PaymentFooter';
 
 const paymentList = [
   {
@@ -34,8 +35,9 @@ const paymentList = [
   },
 ];
 
-const PaymentScreen = () => {
+const PaymentScreen = ({navigation, route}: any) => {
   const [paymentMode, setPaymentMode] = useState('Credit Card');
+  const buttonPressHandler = () => {};
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -70,6 +72,12 @@ const PaymentScreen = () => {
           ))}
         </View>
       </ScrollView>
+
+      <PaymentFooter
+        buttonTitle={`Pay with ${PaymentMethod}`}
+        price={{price: route.params.amount, currency: '$'}}
+        buttonPressHandler={buttonPressHandler}
+      />
     </View>
   );
 };
