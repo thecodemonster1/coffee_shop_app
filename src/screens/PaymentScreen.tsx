@@ -55,7 +55,11 @@ const PaymentScreen = () => {
         </View>
         <View style={styles.PaymentsOptionsContainer}>
           {paymentList.map((data: any) => (
-            <TouchableOpacity key={data.name}>
+            <TouchableOpacity
+              key={data.name}
+              onPress={() => {
+                setPaymentMode(data.name);
+              }}>
               <PaymentMethod
                 paymentMode={paymentMode}
                 name={data.name}
