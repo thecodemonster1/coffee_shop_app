@@ -101,7 +101,11 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_16,
     color: COLORS.primaryWhiteHex,
   },
-  PaymentPrice: {},
+  PaymentPrice: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_16,
+    color: COLORS.secondaryLightGreyHex,
+  },
   PaymentImage: {},
 });
 
