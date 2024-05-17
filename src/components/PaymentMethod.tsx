@@ -106,7 +106,10 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_16,
     color: COLORS.secondaryLightGreyHex,
   },
-  PaymentImage: {},
+  PaymentImage: {
+    width: SPACING.space_30,
+    height: SPACING.space_30,
+  },
 });
 
 export default PaymentMethod;
