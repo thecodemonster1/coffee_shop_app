@@ -45,7 +45,7 @@ const PaymentScreen = ({navigation, route}: any) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
         <View style={styles.HeaderContainer}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={navigation.pop()}>
             <GradientBGIcon
               name="left"
               color={COLORS.primaryLightGreyHex}
