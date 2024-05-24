@@ -56,6 +56,18 @@ const PaymentScreen = ({navigation, route}: any) => {
           <View style={styles.EmptyView} />
         </View>
         <View style={styles.PaymentsOptionsContainer}>
+          <TouchableOpacity onPress={() => setPaymentMode('Credit Card')}>
+            <View
+              style={[
+                styles.CreditCardContainer,
+                {
+                  borderColor:
+                    paymentMode == 'Credit Card'
+                      ? COLORS.primaryOrangeHex
+                      : COLORS.primaryGreyHex,
+                },
+              ]}></View>
+          </TouchableOpacity>
           {paymentList.map((data: any) => (
             <TouchableOpacity
               key={data.name}
@@ -112,4 +124,6 @@ const styles = StyleSheet.create({
     padding: SPACING.space_15,
     gap: SPACING.space_15,
   },
+
+  CreditCardContainer: {},
 });
