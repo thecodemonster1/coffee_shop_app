@@ -32,7 +32,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
       style={[
         styles.PaymentCardContainer,
         {
-          backgroundColor:
+          borderColor:
             paymentMode == name
               ? COLORS.primaryOrangeHex
               : COLORS.primaryGreyHex,
