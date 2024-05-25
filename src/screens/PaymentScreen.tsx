@@ -11,6 +11,7 @@ import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import GradientBGIcon from '../components/GradientBGIcon';
 import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
+import LinearGradient from 'react-native-linear-gradient';
 
 const paymentList = [
   {
@@ -68,6 +69,18 @@ const PaymentScreen = ({navigation, route}: any) => {
                 },
               ]}>
               <Text style={styles.CreditCardTitle}>Credit Card</Text>
+              <View style={styles.CreditCardBG}>
+                <LinearGradient
+                  start={{x: 0, y: 0}}
+                  end={{x: 1, y: 1}}
+                  style={styles.LinearGradientStyle}
+                  colors={[
+                    COLORS.primaryGreyHex,
+                    COLORS.primaryBlackHex,
+                  ]}>
+                    <View style={styles.CreditCardRow}></View>
+                  </LinearGradient>
+              </View>
             </View>
           </TouchableOpacity>
           {paymentList.map((data: any) => (
@@ -128,4 +141,7 @@ const styles = StyleSheet.create({
   },
   CreditCardContainer: {},
   CreditCardTitle: {},
+  CreditCardBG: {},
+  LinearGradientStyle: {},
+  CreditCardRow: {},
 });
