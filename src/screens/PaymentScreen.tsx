@@ -66,7 +66,9 @@ const PaymentScreen = ({navigation, route}: any) => {
                       ? COLORS.primaryOrangeHex
                       : COLORS.primaryGreyHex,
                 },
-              ]}></View>
+              ]}>
+              <Text style={styles.CreditCardTitle}>Credit Card</Text>
+            </View>
           </TouchableOpacity>
           {paymentList.map((data: any) => (
             <TouchableOpacity
@@ -124,6 +126,6 @@ const styles = StyleSheet.create({
     padding: SPACING.space_15,
     gap: SPACING.space_15,
   },
-
   CreditCardContainer: {},
+  CreditCardTitle: {},
 });
