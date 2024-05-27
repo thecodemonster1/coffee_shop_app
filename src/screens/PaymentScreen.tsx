@@ -12,6 +12,7 @@ import GradientBGIcon from '../components/GradientBGIcon';
 import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
 import LinearGradient from 'react-native-linear-gradient';
+import CustomIcon from '../components/CustomIcon';
 
 const paymentList = [
   {
@@ -74,12 +75,20 @@ const PaymentScreen = ({navigation, route}: any) => {
                   start={{x: 0, y: 0}}
                   end={{x: 1, y: 1}}
                   style={styles.LinearGradientStyle}
-                  colors={[
-                    COLORS.primaryGreyHex,
-                    COLORS.primaryBlackHex,
-                  ]}>
-                    <View style={styles.CreditCardRow}></View>
-                  </LinearGradient>
+                  colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}>
+                  <View style={styles.CreditCardRow}>
+                    <CustomIcon
+                      name="chip"
+                      size={FONTSIZE.size_20 * 2}
+                      color={COLORS.primaryOrangeHex}
+                    />
+                    <CustomIcon
+                      name="visa"
+                      size={FONTSIZE.size_30 * 2}
+                      color={COLORS.primaryWhiteHex}
+                    />
+                  </View>
+                </LinearGradient>
               </View>
             </View>
           </TouchableOpacity>
