@@ -88,6 +88,12 @@ const PaymentScreen = ({navigation, route}: any) => {
                       color={COLORS.primaryWhiteHex}
                     />
                   </View>
+                  <View style={styles.CreditCardNumberContainer}>
+                    <Text style={styles.CreditCardNumber}>7764</Text>
+                    <Text style={styles.CreditCardNumber}>1388</Text>
+                    <Text style={styles.CreditCardNumber}>2342</Text>
+                    <Text style={styles.CreditCardNumber}>8740</Text>
+                  </View>
                 </LinearGradient>
               </View>
             </View>
@@ -153,4 +159,6 @@ const styles = StyleSheet.create({
   CreditCardBG: {},
   LinearGradientStyle: {},
   CreditCardRow: {},
+  CreditCardNumberContainer: {},
+  CreditCardNumber: {},
 });
