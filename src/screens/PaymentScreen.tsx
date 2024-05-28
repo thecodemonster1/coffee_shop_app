@@ -94,6 +94,14 @@ const PaymentScreen = ({navigation, route}: any) => {
                     <Text style={styles.CreditCardNumber}>2342</Text>
                     <Text style={styles.CreditCardNumber}>8740</Text>
                   </View>
+                  <View style={styles.CreditCardRow}>
+                    <View style={styles.CreditCardNameSubTitle}>
+                      Credit Card Holder
+                    </View>
+                    <View style={styles.CreditCardNameTitle}>
+                      Mohamed Amhar
+                    </View>
+                  </View>
                 </LinearGradient>
               </View>
             </View>
@@ -161,4 +169,6 @@ const styles = StyleSheet.create({
   CreditCardRow: {},
   CreditCardNumberContainer: {},
   CreditCardNumber: {},
+  CreditCardNameSubTitle: {},
+  CreditCardNameTitle: {},
 });
