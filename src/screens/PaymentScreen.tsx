@@ -95,12 +95,20 @@ const PaymentScreen = ({navigation, route}: any) => {
                     <Text style={styles.CreditCardNumber}>8740</Text>
                   </View>
                   <View style={styles.CreditCardRow}>
-                    <View style={styles.CreditCardNameSubTitle}>
-                      Credit Card Holder
-                    </View>
-                    <View style={styles.CreditCardNameTitle}>
+                    <Text style={styles.CreditCardNameSubTitle}>
+                      Credit Card Holder:
+                    </Text>
+                    <Text style={styles.CreditCardNameTitle}>
                       Mohamed Amhar
-                    </View>
+                    </Text>
+                  </View>
+                  <View style={styles.CreditCardRow}>
+                    <Text style={styles.CreditCardNameSubTitle}>
+                      Expiry Date: 
+                    </Text>
+                    <Text style={styles.CreditCardNameTitle}>
+                      02/30
+                    </Text>
                   </View>
                 </LinearGradient>
               </View>
