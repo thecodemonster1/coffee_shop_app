@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
+import {BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
 import GradientBGIcon from '../components/GradientBGIcon';
 import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
@@ -170,7 +170,12 @@ const styles = StyleSheet.create({
     padding: SPACING.space_15,
     gap: SPACING.space_15,
   },
-  CreditCardContainer: {},
+  CreditCardContainer: {
+    padding: SPACING.space_10,
+    gap: SPACING.space_10,
+    borderRadius: BORDERRADIUS.radius_15 * 2,
+    borderWidth: 3,
+  },
   CreditCardTitle: {},
   CreditCardBG: {},
   LinearGradientStyle: {},
