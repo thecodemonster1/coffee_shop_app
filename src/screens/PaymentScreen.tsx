@@ -176,7 +176,12 @@ const styles = StyleSheet.create({
     borderRadius: BORDERRADIUS.radius_15 * 2,
     borderWidth: 3,
   },
-  CreditCardTitle: {},
+  CreditCardTitle: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_14,
+    color: COLORS.primaryWhiteHex,
+    marginLeft: SPACING.space_10,
+  },
   CreditCardBG: {},
   LinearGradientStyle: {},
   CreditCardRow: {},
