@@ -186,7 +186,12 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primaryGreyHex,
     borderRadius: BORDERRADIUS.radius_25,
   },
-  LinearGradientStyle: {},
+  LinearGradientStyle: {
+    borderRadius: BORDERRADIUS.radius_25,
+    gap: SPACING.space_36,
+    paddingHorizontal: SPACING.space_15,
+    paddingVertical: SPACING.space_10,
+  },
   CreditCardRow: {},
   CreditCardNumberContainer: {},
   CreditCardNumber: {},
