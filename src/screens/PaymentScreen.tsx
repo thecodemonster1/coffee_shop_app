@@ -7,7 +7,13 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {BORDERRADIUS, COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
+import {
+  BORDERRADIUS,
+  COLORS,
+  FONTFAMILY,
+  FONTSIZE,
+  SPACING,
+} from '../theme/theme';
 import GradientBGIcon from '../components/GradientBGIcon';
 import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
@@ -104,11 +110,9 @@ const PaymentScreen = ({navigation, route}: any) => {
                   </View>
                   <View style={styles.CreditCardRow}>
                     <Text style={styles.CreditCardNameSubTitle}>
-                      Expiry Date: 
+                      Expiry Date:
                     </Text>
-                    <Text style={styles.CreditCardNameTitle}>
-                      02/30
-                    </Text>
+                    <Text style={styles.CreditCardNameTitle}>02/30</Text>
                   </View>
                 </LinearGradient>
               </View>
@@ -195,14 +199,19 @@ const styles = StyleSheet.create({
   CreditCardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   CreditCardNumberContainer: {
     flexDirection: 'row',
     gap: SPACING.space_10,
     alignItems: 'center',
   },
-  CreditCardNumber: {},
+  CreditCardNumber: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_18,
+    color: COLORS.primaryWhiteHex,
+    letterSpacing: SPACING.space_4 + SPACING.space_2,
+  },
   CreditCardNameSubTitle: {},
   CreditCardNameTitle: {},
 });
