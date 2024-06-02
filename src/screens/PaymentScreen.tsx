@@ -192,7 +192,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.space_15,
     paddingVertical: SPACING.space_10,
   },
-  CreditCardRow: {},
+  CreditCardRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
   CreditCardNumberContainer: {},
   CreditCardNumber: {},
   CreditCardNameSubTitle: {},
