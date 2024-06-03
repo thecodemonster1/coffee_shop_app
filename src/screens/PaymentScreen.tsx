@@ -101,18 +101,20 @@ const PaymentScreen = ({navigation, route}: any) => {
                     <Text style={styles.CreditCardNumber}>8740</Text>
                   </View>
                   <View style={styles.CreditCardRow}>
-                    <Text style={styles.CreditCardNameSubTitle}>
-                      Credit Card Holder:
-                    </Text>
-                    <Text style={styles.CreditCardNameTitle}>
-                      Mohamed Amhar
-                    </Text>
-                  </View>
-                  <View style={styles.CreditCardRow}>
-                    <Text style={styles.CreditCardNameSubTitle}>
-                      Expiry Date:
-                    </Text>
-                    <Text style={styles.CreditCardNameTitle}>02/30</Text>
+                    <View style={styles.CreditCardNameContainer}>
+                      <Text style={styles.CreditCardNameSubTitle}>
+                        Credit Card Holder:
+                      </Text>
+                      <Text style={styles.CreditCardNameTitle}>
+                        Mohamed Amhar
+                      </Text>
+                    </View>
+                    <View style={styles.CreditCardDateContainer}>
+                      <Text style={styles.CreditCardNameSubTitle}>
+                        Expiry Date:
+                      </Text>
+                      <Text style={styles.CreditCardNameTitle}>02/30</Text>
+                    </View>
                   </View>
                 </LinearGradient>
               </View>
@@ -212,6 +214,14 @@ const styles = StyleSheet.create({
     color: COLORS.primaryWhiteHex,
     letterSpacing: SPACING.space_4 + SPACING.space_2,
   },
-  CreditCardNameSubTitle: {},
-  CreditCardNameTitle: {},
+  CreditCardNameContainer: {},
+  CreditCardDateContainer: {},
+  CreditCardNameSubTitle: {
+    fontFamily: FONTFAMILY.poppins_regular,
+    fontSize: FONTSIZE.size_12,
+    color: COLORS.secondaryLightGreyHex,
+  },
+  CreditCardNameTitle: {
+    
+  },
 });
