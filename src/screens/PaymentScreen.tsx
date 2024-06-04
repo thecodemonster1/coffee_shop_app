@@ -214,8 +214,6 @@ const styles = StyleSheet.create({
     color: COLORS.primaryWhiteHex,
     letterSpacing: SPACING.space_4 + SPACING.space_2,
   },
-  CreditCardNameContainer: {},
-  CreditCardDateContainer: {},
   CreditCardNameSubTitle: {
     fontFamily: FONTFAMILY.poppins_regular,
     fontSize: FONTSIZE.size_12,
@@ -226,4 +224,8 @@ const styles = StyleSheet.create({
     fontSize: FONTSIZE.size_18,
     color: COLORS.primaryWhiteHex,
   },
+  CreditCardNameContainer: {
+    alignItems: 'flex-start',
+  },
+  CreditCardDateContainer: {},
 });
