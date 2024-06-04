@@ -227,5 +227,7 @@ const styles = StyleSheet.create({
   CreditCardNameContainer: {
     alignItems: 'flex-start',
   },
-  CreditCardDateContainer: {},
+  CreditCardDateContainer: {
+    alignItems: 'flex-end',
+  },
 });
