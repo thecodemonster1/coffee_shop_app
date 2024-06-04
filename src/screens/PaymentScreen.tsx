@@ -222,6 +222,8 @@ const styles = StyleSheet.create({
     color: COLORS.secondaryLightGreyHex,
   },
   CreditCardNameTitle: {
-    
+    fontFamily: FONTFAMILY.poppins_medium,
+    fontSize: FONTSIZE.size_18,
+    color: COLORS.primaryWhiteHex,
   },
 });
