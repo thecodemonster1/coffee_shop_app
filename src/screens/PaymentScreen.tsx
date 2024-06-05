@@ -45,16 +45,22 @@ const paymentList = [
 ];
 
 const PaymentScreen = ({navigation, route}: any) => {
-  const calculateCartPrice = useStore((state: any) => {
-    state.calculateCartPrice;
-  });
-  const addToOrderHistoryListFromCart = useStore((state: any) => {
-    state.addToOrderHistoryListFromCart;
-  });
-
+  const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
+  const addToOrderHistoryListFromCart = useStore(
+    (state: any) => state.addToOrderHistoryListFromCart,
+  );
+  
   const [paymentMode, setPaymentMode] = useState('Credit Card');
   const [showAnimation, setShowAnimation] = useState(false);
-  const buttonPressHandler = () => {};
+  const buttonPressHandler = () => {
+    setShowAnimation(true);
+    addToOrderHistoryListFromCart();
+    calculateCartPrice();
+    setTimeout(() => {
+      setShowAnimation(false);
+      navigation.navigate('History');
+    }, 2000);
+  };
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
