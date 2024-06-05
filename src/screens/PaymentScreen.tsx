@@ -19,6 +19,7 @@ import PaymentMethod from '../components/PaymentMethod';
 import PaymentFooter from '../components/PaymentFooter';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomIcon from '../components/CustomIcon';
+import {useStore} from '../store/store';
 
 const paymentList = [
   {
@@ -44,7 +45,15 @@ const paymentList = [
 ];
 
 const PaymentScreen = ({navigation, route}: any) => {
+  const calculateCartPrice = useStore((state: any) => {
+    state.calculateCartPrice;
+  });
+  const addToOrderHistoryListFromCart = useStore((state: any) => {
+    state.addToOrderHistoryListFromCart;
+  });
+
   const [paymentMode, setPaymentMode] = useState('Credit Card');
+  const [showAnimation, setShowAnimation] = useState(false);
   const buttonPressHandler = () => {};
   return (
     <View style={styles.ScreenContainer}>
