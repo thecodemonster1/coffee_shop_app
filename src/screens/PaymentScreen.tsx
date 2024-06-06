@@ -49,7 +49,7 @@ const PaymentScreen = ({navigation, route}: any) => {
   const addToOrderHistoryListFromCart = useStore(
     (state: any) => state.addToOrderHistoryListFromCart,
   );
-  
+
   const [paymentMode, setPaymentMode] = useState('Credit Card');
   const [showAnimation, setShowAnimation] = useState(false);
   const buttonPressHandler = () => {
@@ -64,6 +64,7 @@ const PaymentScreen = ({navigation, route}: any) => {
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
+      {showAnimation ? <></> : <></>}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
