@@ -1,7 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const PopUpAnimation = () => {
+interface PopUpAnimationProp {
+  style: any;
+  source: any;
+}
+
+const PopUpAnimation: React.FC<PopUpAnimationProp> = (style, source) => {
   return (
     <View>
       <Text>PopUpAnimation</Text>
