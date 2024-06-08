@@ -3,15 +3,15 @@ import React from 'react';
 import {COLORS} from '../theme/theme';
 import LottieView from 'lottie-react-native';
 
-interface PopUpAnimationProp {
+interface PopUpAnimationProps {
   style: any;
   source: any;
 }
 
-const PopUpAnimation: React.FC<PopUpAnimationProp> = (style, source) => {
+const PopUpAnimation: React.FC<PopUpAnimationProps> = ({style, source}) => {
   return (
     <View style={styles.LottieAnimationContainer}>
-      <LottieView /> 
+      <LottieView style={style} source={source} autoPlay loop={false}/> 
     </View>
   );
 };
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 1000,
-    backgroundColor: COLORS.primaryBlackRGBA,
+    backgroundColor: COLORS.secondaryBlackRGBA,
     justifyContent: 'center',
   },
 });
